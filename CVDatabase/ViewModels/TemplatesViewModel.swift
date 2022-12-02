@@ -15,7 +15,8 @@ protocol TemplatesViewModelType: AnyObject {
     func getTemplate(atIndex: IndexPath) -> Template?
 }
 
-class TemplatesViewModel: TemplatesViewModelType {
+class TemplatesViewModel {
+    
     // MARK: - Parameters
     
     private let dependencyContainer: ServiceDependencyProvider
@@ -28,9 +29,11 @@ class TemplatesViewModel: TemplatesViewModelType {
         
         getAllTemplates()
     }
-    
-    // MARK: - TemplatesViewModelType
-    
+}
+
+// MARK: - TemplatesViewModelType
+
+extension TemplatesViewModel: TemplatesViewModelType {
     func getAllTemplates() {
         templates.value = dependencyContainer.cvRepository.fetchAllTemplates()
     }

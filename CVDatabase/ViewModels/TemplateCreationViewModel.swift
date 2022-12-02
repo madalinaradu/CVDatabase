@@ -8,10 +8,12 @@
 import Foundation
 
 protocol TemplateCreationViewModelType: AnyObject {
-
+    func getNumberOfRows() -> Int
+    func getTemplateType(forIndex index: IndexPath) -> TemplateType?
 }
 
-class TemplateCreationViewModel: TemplateCreationViewModelType {
+class TemplateCreationViewModel {
+    
     // MARK: - Parameters
     
     private let dependencyContainer: ServiceDependencyProvider
@@ -21,7 +23,17 @@ class TemplateCreationViewModel: TemplateCreationViewModelType {
     init(dependencyContainer: ServiceDependencyProvider) {
         self.dependencyContainer = dependencyContainer
     }
+}
+
+// MARK: - TemplateCreationViewModelType
+
+extension TemplateCreationViewModel: TemplateCreationViewModelType {
+    func getNumberOfRows() -> Int {
+        return TemplateType.allCases.count
+    }
     
-    // MARK: - TemplateCreationViewModelType
+    func getTemplateType(forIndex index: IndexPath) -> TemplateType? {
+        return TemplateType(rawValue: index.row)
+    }
 }
 

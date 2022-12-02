@@ -10,8 +10,8 @@ import UIKit
 class TemplatesViewController: UIViewController {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Parameters
     
