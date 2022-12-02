@@ -20,6 +20,11 @@
 		4A7FBC2C293A104C00FE0751 /* CoreDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC2B293A104C00FE0751 /* CoreDataContainer.swift */; };
 		4A7FBC2E293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC2D293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift */; };
 		4A7FBC30293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC2F293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift */; };
+		4A7FBC34293A17CF00FE0751 /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC33293A17CF00FE0751 /* Template.swift */; };
+		4A7FBC36293A181300FE0751 /* TemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC35293A181300FE0751 /* TemplateType.swift */; };
+		4A7FBC38293A193D00FE0751 /* TemplateFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC37293A193D00FE0751 /* TemplateFieldType.swift */; };
+		4A7FBC3E293A1C6200FE0751 /* TemplateEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC3C293A1C6200FE0751 /* TemplateEntity+CoreDataClass.swift */; };
+		4A7FBC3F293A1C6200FE0751 /* TemplateEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC3D293A1C6200FE0751 /* TemplateEntity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,11 @@
 		4A7FBC2B293A104C00FE0751 /* CoreDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataContainer.swift; sourceTree = "<group>"; };
 		4A7FBC2D293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectModel+sharedModel.swift"; sourceTree = "<group>"; };
 		4A7FBC2F293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+saveIfNeeded.swift"; sourceTree = "<group>"; };
+		4A7FBC33293A17CF00FE0751 /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
+		4A7FBC35293A181300FE0751 /* TemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateType.swift; sourceTree = "<group>"; };
+		4A7FBC37293A193D00FE0751 /* TemplateFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateFieldType.swift; sourceTree = "<group>"; };
+		4A7FBC3C293A1C6200FE0751 /* TemplateEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TemplateEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4A7FBC3D293A1C6200FE0751 /* TemplateEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TemplateEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +117,7 @@
 		4A7FBBF6293A0DB500FE0751 /* CVDatabase */ = {
 			isa = PBXGroup;
 			children = (
+				4A7FBC32293A17B800FE0751 /* Models */,
 				4A7FBC2A293A0FF100FE0751 /* CoreData */,
 				4A7FBBF7293A0DB500FE0751 /* AppDelegate.swift */,
 				4A7FBBF9293A0DB500FE0751 /* SceneDelegate.swift */,
@@ -140,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7FBC31293A124800FE0751 /* SetupExtensions */,
+				4A7FBC39293A1B4D00FE0751 /* Entities */,
 				4A7FBC00293A0DB500FE0751 /* CVDatabase.xcdatamodeld */,
 				4A7FBC2B293A104C00FE0751 /* CoreDataContainer.swift */,
 			);
@@ -153,6 +165,41 @@
 				4A7FBC2F293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift */,
 			);
 			path = SetupExtensions;
+			sourceTree = "<group>";
+		};
+		4A7FBC32293A17B800FE0751 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBC3B293A1C4900FE0751 /* Template */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4A7FBC39293A1B4D00FE0751 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBC3A293A1C3A00FE0751 /* TemplateEntity */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		4A7FBC3A293A1C3A00FE0751 /* TemplateEntity */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBC3C293A1C6200FE0751 /* TemplateEntity+CoreDataClass.swift */,
+				4A7FBC3D293A1C6200FE0751 /* TemplateEntity+CoreDataProperties.swift */,
+			);
+			path = TemplateEntity;
+			sourceTree = "<group>";
+		};
+		4A7FBC3B293A1C4900FE0751 /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBC33293A17CF00FE0751 /* Template.swift */,
+				4A7FBC35293A181300FE0751 /* TemplateType.swift */,
+				4A7FBC37293A193D00FE0751 /* TemplateFieldType.swift */,
+			);
+			path = Template;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,11 +333,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A7FBC38293A193D00FE0751 /* TemplateFieldType.swift in Sources */,
 				4A7FBC2E293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift in Sources */,
+				4A7FBC3F293A1C6200FE0751 /* TemplateEntity+CoreDataProperties.swift in Sources */,
 				4A7FBBFC293A0DB500FE0751 /* ViewController.swift in Sources */,
 				4A7FBC30293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift in Sources */,
+				4A7FBC3E293A1C6200FE0751 /* TemplateEntity+CoreDataClass.swift in Sources */,
+				4A7FBC36293A181300FE0751 /* TemplateType.swift in Sources */,
 				4A7FBC02293A0DB500FE0751 /* CVDatabase.xcdatamodeld in Sources */,
 				4A7FBBF8293A0DB500FE0751 /* AppDelegate.swift in Sources */,
+				4A7FBC34293A17CF00FE0751 /* Template.swift in Sources */,
 				4A7FBC2C293A104C00FE0751 /* CoreDataContainer.swift in Sources */,
 				4A7FBBFA293A0DB500FE0751 /* SceneDelegate.swift in Sources */,
 			);
