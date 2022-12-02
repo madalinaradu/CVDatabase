@@ -13,3 +13,17 @@ import CoreData
 public class TemplateEntity: NSManagedObject {
 
 }
+
+extension TemplateEntity {
+    // convert to a Data Transfer Object
+    func convertToDTO() -> Template {
+        return Template(hasName: self.hasName,
+                        hasPhone: self.hasPhone,
+                        hasEmail: self.hasEmail,
+                        hasAge: self.hasAge,
+                        hasStudies: self.hasStudies,
+                        hasExperience: self.hasExperience,
+                        hasSkills: self.hasSkills,
+                        hasPersonalProjects: self.hasPersonalProjects)
+    }
+}

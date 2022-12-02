@@ -40,3 +40,23 @@ class CV {
         self.personalProjects = personalProjects
     }
 }
+
+extension CV {
+    func convertToCoreDataEntity() -> CVEntity {
+        let context = CoreDataContainer.shared.newBackgroundContext()
+        let cvEntity = CVEntity(context: context)
+        cvEntity.name = self.name
+        cvEntity.phone = self.phone
+        cvEntity.email = self.email
+        if let age = self.age {
+            cvEntity.age = Int16(age)
+        }
+        cvEntity.studies = self.studies
+        cvEntity.experience = self.experience
+        cvEntity.skills = self.skills
+        cvEntity.personalProjects = self.personalProjects
+        
+        cvEntity.template = self.template.convertToCoreDataEntity()
+        return cvEntity
+    }
+}

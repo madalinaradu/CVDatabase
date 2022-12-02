@@ -37,3 +37,19 @@ class Template {
         self.hasPersonalProjects = hasPersonalProjects
     }
 }
+
+extension Template {
+    func convertToCoreDataEntity() -> TemplateEntity {
+        let context = CoreDataContainer.shared.newBackgroundContext()
+        let templateEntity = TemplateEntity(context: context)
+        templateEntity.hasName = self.hasName
+        templateEntity.hasPhone = self.hasPhone
+        templateEntity.hasEmail = self.hasEmail
+        templateEntity.hasAge = self.hasAge
+        templateEntity.hasStudies = self.hasStudies
+        templateEntity.hasExperience = self.hasExperience
+        templateEntity.hasSkills = self.hasSkills
+        templateEntity.hasPersonalProjects = self.hasPersonalProjects
+        return templateEntity
+    }
+}
