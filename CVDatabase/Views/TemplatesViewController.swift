@@ -8,6 +8,8 @@
 import UIKit
 
 class TemplatesViewController: UIViewController {
+    
+    let dependencyContainer: ServiceDependencyProvider = ServiceDependencyContainer()
 
     override func viewDidLoad() {
         super.viewDidLoad()

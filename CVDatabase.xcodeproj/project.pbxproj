@@ -29,6 +29,8 @@
 		4A7FBC48293A1E5200FE0751 /* CVEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC46293A1E5200FE0751 /* CVEntity+CoreDataClass.swift */; };
 		4A7FBC4B293A214F00FE0751 /* CVEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC4A293A214F00FE0751 /* CVEntity+CoreDataProperties.swift */; };
 		4A7FBC51293A229200FE0751 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC50293A229200FE0751 /* Observable.swift */; };
+		4A7FBC54293A234E00FE0751 /* ServiceDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC53293A234E00FE0751 /* ServiceDependencyContainer.swift */; };
+		4A7FBC57293A237F00FE0751 /* CVRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC56293A237F00FE0751 /* CVRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		4A7FBC46293A1E5200FE0751 /* CVEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4A7FBC4A293A214F00FE0751 /* CVEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4A7FBC50293A229200FE0751 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		4A7FBC53293A234E00FE0751 /* ServiceDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDependencyContainer.swift; sourceTree = "<group>"; };
+		4A7FBC56293A237F00FE0751 /* CVRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 				4A7FBC4C293A220700FE0751 /* ViewModels */,
 				4A7FBC32293A17B800FE0751 /* Models */,
 				4A7FBC2A293A0FF100FE0751 /* CoreData */,
+				4A7FBC55293A236700FE0751 /* Repositories */,
 				4A7FBBF7293A0DB500FE0751 /* AppDelegate.swift */,
 				4A7FBBF9293A0DB500FE0751 /* SceneDelegate.swift */,
 				4A7FBBFD293A0DB500FE0751 /* Main.storyboard */,
@@ -249,6 +254,7 @@
 		4A7FBC4E293A225900FE0751 /* Architecture */ = {
 			isa = PBXGroup;
 			children = (
+				4A7FBC52293A234100FE0751 /* DependencyInjection */,
 				4A7FBC4F293A228400FE0751 /* DataBinding */,
 			);
 			path = Architecture;
@@ -260,6 +266,22 @@
 				4A7FBC50293A229200FE0751 /* Observable.swift */,
 			);
 			path = DataBinding;
+			sourceTree = "<group>";
+		};
+		4A7FBC52293A234100FE0751 /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBC53293A234E00FE0751 /* ServiceDependencyContainer.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		4A7FBC55293A236700FE0751 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBC56293A237F00FE0751 /* CVRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,7 +419,9 @@
 				4A7FBC38293A193D00FE0751 /* TemplateFieldType.swift in Sources */,
 				4A7FBC2E293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift in Sources */,
 				4A7FBBFC293A0DB500FE0751 /* TemplatesViewController.swift in Sources */,
+				4A7FBC57293A237F00FE0751 /* CVRepository.swift in Sources */,
 				4A7FBC30293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift in Sources */,
+				4A7FBC54293A234E00FE0751 /* ServiceDependencyContainer.swift in Sources */,
 				4A7FBC3E293A1C6200FE0751 /* TemplateEntity+CoreDataClass.swift in Sources */,
 				4A7FBC36293A181300FE0751 /* TemplateType.swift in Sources */,
 				4A7FBC02293A0DB500FE0751 /* CVDatabase.xcdatamodeld in Sources */,
