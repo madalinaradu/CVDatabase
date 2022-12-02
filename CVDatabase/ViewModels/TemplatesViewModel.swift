@@ -26,7 +26,7 @@ class TemplatesViewModel: TemplatesViewModelType {
     init(dependencyContainer: ServiceDependencyProvider) {
         self.dependencyContainer = dependencyContainer
         
-        self.getAllTemplates()
+        getAllTemplates()
     }
     
     // MARK: - TemplatesViewModelType

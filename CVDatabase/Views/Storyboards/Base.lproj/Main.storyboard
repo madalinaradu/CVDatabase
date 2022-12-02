@@ -42,7 +42,13 @@
                             <constraint firstItem="xmi-eG-hzA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qbN-o3-cwr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0Vv-20-Hat"/>
+                    <navigationItem key="navigationItem" id="0Vv-20-Hat">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hCp-Ek-P9s">
+                            <connections>
+                                <action selector="addButtonWasTapped:" destination="BYZ-38-t0r" id="0p0-33-F9K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="caD-UW-T3H" id="lw2-wq-uR9"/>
                     </connections>

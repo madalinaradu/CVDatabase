@@ -29,6 +29,12 @@ class TemplatesViewController: UIViewController {
         viewModel?.getAllTemplates()
     }
 
+    // MARK: - IBOutlets
+    
+    @IBAction func addButtonWasTapped(_ sender: Any) {
+        print("Open template creation page")
+    }
+    
     // MARK: - Instance functions
     
     func bindViewModel() {
