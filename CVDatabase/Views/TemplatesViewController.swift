@@ -12,15 +12,24 @@ class TemplatesViewController: UIViewController {
     // MARK: - Parameters
     
     let dependencyContainer: ServiceDependencyProvider = ServiceDependencyContainer()
-    let viewModel: TemplatesViewModelType = TemplatesViewModel()
+    weak var viewModel: TemplatesViewModelType? {
+        return TemplatesViewModel(dependencyContainer: dependencyContainer)
+    }
 
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        viewModel?.getAllTemplates()
     }
 
     // MARK: - Instance functions
+    
+    func bindViewModel() {
+        viewModel?.templates.bind { _ in
+            print("Templates were updated")
+        }
+    }
 }
 
