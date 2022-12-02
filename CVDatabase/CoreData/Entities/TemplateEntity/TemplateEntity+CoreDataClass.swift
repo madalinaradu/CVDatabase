@@ -39,4 +39,8 @@ extension TemplateEntity {
             return []
         }
     }
+    
+    static func deleteAll(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) {
+        context.deleteRecords(for: "TemplateEntity", context: context)
+    }
 }

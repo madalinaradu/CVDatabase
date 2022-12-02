@@ -34,6 +34,7 @@
 		4A7FBC59293A2BC000FE0751 /* TemplatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC58293A2BBF00FE0751 /* TemplatesViewModel.swift */; };
 		4A7FBC61293A346400FE0751 /* TemplateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC5F293A346400FE0751 /* TemplateTableViewCell.swift */; };
 		4A7FBC62293A346400FE0751 /* TemplateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FBC60293A346400FE0751 /* TemplateTableViewCell.xib */; };
+		4A7FBC64293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC63293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		4A7FBC58293A2BBF00FE0751 /* TemplatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesViewModel.swift; sourceTree = "<group>"; };
 		4A7FBC5F293A346400FE0751 /* TemplateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTableViewCell.swift; sourceTree = "<group>"; };
 		4A7FBC60293A346400FE0751 /* TemplateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateTableViewCell.xib; sourceTree = "<group>"; };
+		4A7FBC63293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+deleteRecords.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			children = (
 				4A7FBC2D293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift */,
 				4A7FBC2F293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift */,
+				4A7FBC63293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift */,
 			);
 			path = SetupExtensions;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				4A7FBC02293A0DB500FE0751 /* CVDatabase.xcdatamodeld in Sources */,
 				4A7FBC42293A1CB300FE0751 /* CV.swift in Sources */,
 				4A7FBBF8293A0DB500FE0751 /* AppDelegate.swift in Sources */,
+				4A7FBC64293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift in Sources */,
 				4A7FBC61293A346400FE0751 /* TemplateTableViewCell.swift in Sources */,
 				4A7FBC34293A17CF00FE0751 /* Template.swift in Sources */,
 				4A7FBC2C293A104C00FE0751 /* CoreDataContainer.swift in Sources */,

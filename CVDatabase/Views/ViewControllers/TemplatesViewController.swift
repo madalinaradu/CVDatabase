@@ -16,9 +16,9 @@ class TemplatesViewController: UIViewController {
     // MARK: - Parameters
     
     let dependencyContainer: ServiceDependencyProvider = ServiceDependencyContainer()
-    weak var viewModel: TemplatesViewModelType? {
+    lazy var viewModel: TemplatesViewModelType? = {
         return TemplatesViewModel(dependencyContainer: dependencyContainer)
-    }
+    }()
 
     // MARK: - View Lifecycle
     
