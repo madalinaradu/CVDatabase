@@ -35,6 +35,10 @@
 		4A7FBC61293A346400FE0751 /* TemplateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC5F293A346400FE0751 /* TemplateTableViewCell.swift */; };
 		4A7FBC62293A346400FE0751 /* TemplateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FBC60293A346400FE0751 /* TemplateTableViewCell.xib */; };
 		4A7FBC64293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC63293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift */; };
+		4AEB0EC1293A7027005ADCB1 /* TemplateCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEB0EC0293A7027005ADCB1 /* TemplateCreation.storyboard */; };
+		4AEB0EC3293A7053005ADCB1 /* TemplateCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0EC2293A7053005ADCB1 /* TemplateCreationViewController.swift */; };
+		4AEB0EC6293A71C1005ADCB1 /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0EC5293A71C1005ADCB1 /* Storyboardable.swift */; };
+		4AEB0EC8293A72C5005ADCB1 /* TemplateCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0EC7293A72C5005ADCB1 /* TemplateCreationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +91,10 @@
 		4A7FBC5F293A346400FE0751 /* TemplateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTableViewCell.swift; sourceTree = "<group>"; };
 		4A7FBC60293A346400FE0751 /* TemplateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateTableViewCell.xib; sourceTree = "<group>"; };
 		4A7FBC63293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+deleteRecords.swift"; sourceTree = "<group>"; };
+		4AEB0EC0293A7027005ADCB1 /* TemplateCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TemplateCreation.storyboard; sourceTree = "<group>"; };
+		4AEB0EC2293A7053005ADCB1 /* TemplateCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCreationViewController.swift; sourceTree = "<group>"; };
+		4AEB0EC5293A71C1005ADCB1 /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
+		4AEB0EC7293A72C5005ADCB1 /* TemplateCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCreationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +145,7 @@
 		4A7FBBF6293A0DB500FE0751 /* CVDatabase */ = {
 			isa = PBXGroup;
 			children = (
+				4AEB0EC4293A7193005ADCB1 /* Extensions */,
 				4A7FBC4E293A225900FE0751 /* Architecture */,
 				4A7FBC4D293A220D00FE0751 /* Views */,
 				4A7FBC4C293A220700FE0751 /* ViewModels */,
@@ -248,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7FBC58293A2BBF00FE0751 /* TemplatesViewModel.swift */,
+				4AEB0EC7293A72C5005ADCB1 /* TemplateCreationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -299,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7FBBFD293A0DB500FE0751 /* Main.storyboard */,
+				4AEB0EC0293A7027005ADCB1 /* TemplateCreation.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -316,8 +327,17 @@
 			isa = PBXGroup;
 			children = (
 				4A7FBBFB293A0DB500FE0751 /* TemplatesViewController.swift */,
+				4AEB0EC2293A7053005ADCB1 /* TemplateCreationViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4AEB0EC4293A7193005ADCB1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4AEB0EC5293A71C1005ADCB1 /* Storyboardable.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,6 +447,7 @@
 				4A7FBC07293A0DB500FE0751 /* LaunchScreen.storyboard in Resources */,
 				4A7FBC62293A346400FE0751 /* TemplateTableViewCell.xib in Resources */,
 				4A7FBC04293A0DB500FE0751 /* Assets.xcassets in Resources */,
+				4AEB0EC1293A7027005ADCB1 /* TemplateCreation.storyboard in Resources */,
 				4A7FBBFF293A0DB500FE0751 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,14 +486,17 @@
 				4A7FBC02293A0DB500FE0751 /* CVDatabase.xcdatamodeld in Sources */,
 				4A7FBC42293A1CB300FE0751 /* CV.swift in Sources */,
 				4A7FBBF8293A0DB500FE0751 /* AppDelegate.swift in Sources */,
+				4AEB0EC3293A7053005ADCB1 /* TemplateCreationViewController.swift in Sources */,
 				4A7FBC64293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift in Sources */,
 				4A7FBC61293A346400FE0751 /* TemplateTableViewCell.swift in Sources */,
 				4A7FBC34293A17CF00FE0751 /* Template.swift in Sources */,
 				4A7FBC2C293A104C00FE0751 /* CoreDataContainer.swift in Sources */,
+				4AEB0EC6293A71C1005ADCB1 /* Storyboardable.swift in Sources */,
 				4A7FBBFA293A0DB500FE0751 /* SceneDelegate.swift in Sources */,
 				4A7FBC4B293A214F00FE0751 /* CVEntity+CoreDataProperties.swift in Sources */,
 				4A7FBC45293A1E2F00FE0751 /* TemplateEntity+CoreDataProperties.swift in Sources */,
 				4A7FBC48293A1E5200FE0751 /* CVEntity+CoreDataClass.swift in Sources */,
+				4AEB0EC8293A72C5005ADCB1 /* TemplateCreationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,8 @@ class TemplatesViewController: UIViewController {
     lazy var viewModel: TemplatesViewModelType? = {
         return TemplatesViewModel(dependencyContainer: dependencyContainer)
     }()
+    static let storyboardName = "Main"
+    static let identifier = "TemplatesViewController"
 
     // MARK: - View Lifecycle
     
@@ -27,12 +29,19 @@ class TemplatesViewController: UIViewController {
         
         configureTableView()
         viewModel?.getAllTemplates()
+        bindViewModel()
     }
 
     // MARK: - IBOutlets
     
     @IBAction func addButtonWasTapped(_ sender: Any) {
-        print("Open template creation page")
+        let storyboard = UIStoryboard(name: TemplateCreationViewController.storyboardName, bundle: nil)
+        guard let controller = storyboard.instantiateViewController(withIdentifier: TemplateCreationViewController.identifier) as? TemplateCreationViewController else {
+            return
+        }
+        let viewModel = TemplateCreationViewModel(dependencyContainer: dependencyContainer)
+        controller.viewModel = viewModel
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: - Instance functions
@@ -51,9 +60,10 @@ class TemplatesViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
+
 extension TemplatesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.templates.value.count ?? 0
+        return viewModel?.getTemplatesCount() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
