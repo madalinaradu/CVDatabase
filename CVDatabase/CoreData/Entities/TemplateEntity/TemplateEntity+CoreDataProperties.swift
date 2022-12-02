@@ -24,6 +24,24 @@ extension TemplateEntity {
     @NSManaged public var hasExperience: Bool
     @NSManaged public var hasSkills: Bool
     @NSManaged public var hasPersonalProjects: Bool
+    @NSManaged public var cvs: NSSet?
+
+}
+
+// MARK: Generated accessors for cvs
+extension TemplateEntity {
+
+    @objc(addCvsObject:)
+    @NSManaged public func addToCvs(_ value: CVEntity)
+
+    @objc(removeCvsObject:)
+    @NSManaged public func removeFromCvs(_ value: CVEntity)
+
+    @objc(addCvs:)
+    @NSManaged public func addToCvs(_ values: NSSet)
+
+    @objc(removeCvs:)
+    @NSManaged public func removeFromCvs(_ values: NSSet)
 
 }
 

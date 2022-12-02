@@ -24,7 +24,10 @@
 		4A7FBC36293A181300FE0751 /* TemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC35293A181300FE0751 /* TemplateType.swift */; };
 		4A7FBC38293A193D00FE0751 /* TemplateFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC37293A193D00FE0751 /* TemplateFieldType.swift */; };
 		4A7FBC3E293A1C6200FE0751 /* TemplateEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC3C293A1C6200FE0751 /* TemplateEntity+CoreDataClass.swift */; };
-		4A7FBC3F293A1C6200FE0751 /* TemplateEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC3D293A1C6200FE0751 /* TemplateEntity+CoreDataProperties.swift */; };
+		4A7FBC42293A1CB300FE0751 /* CV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC41293A1CB300FE0751 /* CV.swift */; };
+		4A7FBC45293A1E2F00FE0751 /* TemplateEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC44293A1E2F00FE0751 /* TemplateEntity+CoreDataProperties.swift */; };
+		4A7FBC48293A1E5200FE0751 /* CVEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC46293A1E5200FE0751 /* CVEntity+CoreDataClass.swift */; };
+		4A7FBC49293A1E5200FE0751 /* CVEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC47293A1E5200FE0751 /* CVEntity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +69,10 @@
 		4A7FBC35293A181300FE0751 /* TemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateType.swift; sourceTree = "<group>"; };
 		4A7FBC37293A193D00FE0751 /* TemplateFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateFieldType.swift; sourceTree = "<group>"; };
 		4A7FBC3C293A1C6200FE0751 /* TemplateEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TemplateEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		4A7FBC3D293A1C6200FE0751 /* TemplateEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TemplateEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4A7FBC41293A1CB300FE0751 /* CV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CV.swift; sourceTree = "<group>"; };
+		4A7FBC44293A1E2F00FE0751 /* TemplateEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TemplateEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4A7FBC46293A1E5200FE0751 /* CVEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4A7FBC47293A1E5200FE0751 /* CVEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7FBC3B293A1C4900FE0751 /* Template */,
+				4A7FBC40293A1CA600FE0751 /* CV */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7FBC3A293A1C3A00FE0751 /* TemplateEntity */,
+				4A7FBC43293A1D6900FE0751 /* CVEntity */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -186,8 +194,8 @@
 		4A7FBC3A293A1C3A00FE0751 /* TemplateEntity */ = {
 			isa = PBXGroup;
 			children = (
+				4A7FBC44293A1E2F00FE0751 /* TemplateEntity+CoreDataProperties.swift */,
 				4A7FBC3C293A1C6200FE0751 /* TemplateEntity+CoreDataClass.swift */,
-				4A7FBC3D293A1C6200FE0751 /* TemplateEntity+CoreDataProperties.swift */,
 			);
 			path = TemplateEntity;
 			sourceTree = "<group>";
@@ -200,6 +208,23 @@
 				4A7FBC37293A193D00FE0751 /* TemplateFieldType.swift */,
 			);
 			path = Template;
+			sourceTree = "<group>";
+		};
+		4A7FBC40293A1CA600FE0751 /* CV */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBC41293A1CB300FE0751 /* CV.swift */,
+			);
+			path = CV;
+			sourceTree = "<group>";
+		};
+		4A7FBC43293A1D6900FE0751 /* CVEntity */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBC46293A1E5200FE0751 /* CVEntity+CoreDataClass.swift */,
+				4A7FBC47293A1E5200FE0751 /* CVEntity+CoreDataProperties.swift */,
+			);
+			path = CVEntity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,16 +360,19 @@
 			files = (
 				4A7FBC38293A193D00FE0751 /* TemplateFieldType.swift in Sources */,
 				4A7FBC2E293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift in Sources */,
-				4A7FBC3F293A1C6200FE0751 /* TemplateEntity+CoreDataProperties.swift in Sources */,
 				4A7FBBFC293A0DB500FE0751 /* ViewController.swift in Sources */,
 				4A7FBC30293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift in Sources */,
 				4A7FBC3E293A1C6200FE0751 /* TemplateEntity+CoreDataClass.swift in Sources */,
 				4A7FBC36293A181300FE0751 /* TemplateType.swift in Sources */,
 				4A7FBC02293A0DB500FE0751 /* CVDatabase.xcdatamodeld in Sources */,
+				4A7FBC42293A1CB300FE0751 /* CV.swift in Sources */,
 				4A7FBBF8293A0DB500FE0751 /* AppDelegate.swift in Sources */,
 				4A7FBC34293A17CF00FE0751 /* Template.swift in Sources */,
 				4A7FBC2C293A104C00FE0751 /* CoreDataContainer.swift in Sources */,
 				4A7FBBFA293A0DB500FE0751 /* SceneDelegate.swift in Sources */,
+				4A7FBC49293A1E5200FE0751 /* CVEntity+CoreDataProperties.swift in Sources */,
+				4A7FBC45293A1E2F00FE0751 /* TemplateEntity+CoreDataProperties.swift in Sources */,
+				4A7FBC48293A1E5200FE0751 /* CVEntity+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
