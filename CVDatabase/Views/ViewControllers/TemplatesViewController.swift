@@ -40,6 +40,7 @@ class TemplatesViewController: UIViewController {
     
     func configureTableView() {
         tableView.dataSource = self
+        tableView.register(UINib(nibName: TemplateTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TemplateTableViewCell.identifier)
     }
 }
 
@@ -50,7 +51,16 @@ extension TemplatesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TemplateTableViewCell.identifier, for: indexPath) as? TemplateTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        guard let template = viewModel?.getTemplate(atIndex: indexPath) else {
+            return UITableViewCell()
+        }
+        
+        cell.configureWith(template)
+        return cell
     }
 }
 

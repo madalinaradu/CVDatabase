@@ -53,3 +53,17 @@ extension Template {
         return templateEntity
     }
 }
+
+extension Template {
+    var components: String {
+        return "Components: " +
+        (hasName ? "Name, " : "") +
+        (hasPhone ? "Phone, " : "") +
+        (hasEmail ? "Email, " : "") +
+        (hasAge ? "Age, " : "") +
+        (hasStudies ? "Studies, " : "") +
+        (hasExperience ? "Experience, " : "") +
+        (hasSkills ? "Skills, " : "") +
+        (hasPersonalProjects ? "PersonalProjects" : "")
+    }
+}
