@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class Template {
     let hasName: Bool
@@ -39,8 +40,7 @@ class Template {
 }
 
 extension Template {
-    func convertToCoreDataEntity() -> TemplateEntity {
-        let context = CoreDataContainer.shared.newBackgroundContext()
+    func convertToCoreDataEntity(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> TemplateEntity {
         let templateEntity = TemplateEntity(context: context)
         templateEntity.hasName = self.hasName
         templateEntity.hasPhone = self.hasPhone

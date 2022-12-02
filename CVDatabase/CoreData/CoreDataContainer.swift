@@ -8,13 +8,6 @@
 import Foundation
 import CoreData
 
-enum CoreDataStorageError: Error {
-    case noSavedObjects
-    case readError(Error)
-    case saveError(Error)
-    case deleteError(Error)
-}
-
 final class CoreDataContainer: NSPersistentContainer {
 
     static let shared = CoreDataContainer(name: "CVDatabase", managedObjectModel: .sharedModel)

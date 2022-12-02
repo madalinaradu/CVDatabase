@@ -27,3 +27,16 @@ extension TemplateEntity {
                         hasPersonalProjects: self.hasPersonalProjects)
     }
 }
+
+extension TemplateEntity {
+    static func fetchAll(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> [TemplateEntity] {
+        let fetchRequest: NSFetchRequest = TemplateEntity.fetchRequest()
+        do {
+            let fetchResponse = try context.fetch(fetchRequest)
+            return fetchResponse
+        } catch {
+            print("Fetch failed")
+            return []
+        }
+    }
+}
