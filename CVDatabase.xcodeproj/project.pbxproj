@@ -17,6 +17,9 @@
 		4A7FBC12293A0DB500FE0751 /* CVDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC11293A0DB500FE0751 /* CVDatabaseTests.swift */; };
 		4A7FBC1C293A0DB500FE0751 /* CVDatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC1B293A0DB500FE0751 /* CVDatabaseUITests.swift */; };
 		4A7FBC1E293A0DB500FE0751 /* CVDatabaseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC1D293A0DB500FE0751 /* CVDatabaseUITestsLaunchTests.swift */; };
+		4A7FBC2C293A104C00FE0751 /* CoreDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC2B293A104C00FE0751 /* CoreDataContainer.swift */; };
+		4A7FBC2E293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC2D293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift */; };
+		4A7FBC30293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC2F293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		4A7FBC17293A0DB500FE0751 /* CVDatabaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CVDatabaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7FBC1B293A0DB500FE0751 /* CVDatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVDatabaseUITests.swift; sourceTree = "<group>"; };
 		4A7FBC1D293A0DB500FE0751 /* CVDatabaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVDatabaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4A7FBC2B293A104C00FE0751 /* CoreDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataContainer.swift; sourceTree = "<group>"; };
+		4A7FBC2D293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectModel+sharedModel.swift"; sourceTree = "<group>"; };
+		4A7FBC2F293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+saveIfNeeded.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 		4A7FBBF6293A0DB500FE0751 /* CVDatabase */ = {
 			isa = PBXGroup;
 			children = (
+				4A7FBC2A293A0FF100FE0751 /* CoreData */,
 				4A7FBBF7293A0DB500FE0751 /* AppDelegate.swift */,
 				4A7FBBF9293A0DB500FE0751 /* SceneDelegate.swift */,
 				4A7FBBFB293A0DB500FE0751 /* ViewController.swift */,
@@ -108,7 +115,6 @@
 				4A7FBC03293A0DB500FE0751 /* Assets.xcassets */,
 				4A7FBC05293A0DB500FE0751 /* LaunchScreen.storyboard */,
 				4A7FBC08293A0DB500FE0751 /* Info.plist */,
-				4A7FBC00293A0DB500FE0751 /* CVDatabase.xcdatamodeld */,
 			);
 			path = CVDatabase;
 			sourceTree = "<group>";
@@ -128,6 +134,25 @@
 				4A7FBC1D293A0DB500FE0751 /* CVDatabaseUITestsLaunchTests.swift */,
 			);
 			path = CVDatabaseUITests;
+			sourceTree = "<group>";
+		};
+		4A7FBC2A293A0FF100FE0751 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBC31293A124800FE0751 /* SetupExtensions */,
+				4A7FBC00293A0DB500FE0751 /* CVDatabase.xcdatamodeld */,
+				4A7FBC2B293A104C00FE0751 /* CoreDataContainer.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		4A7FBC31293A124800FE0751 /* SetupExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBC2D293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift */,
+				4A7FBC2F293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift */,
+			);
+			path = SetupExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +286,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A7FBC2E293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift in Sources */,
 				4A7FBBFC293A0DB500FE0751 /* ViewController.swift in Sources */,
+				4A7FBC30293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift in Sources */,
 				4A7FBC02293A0DB500FE0751 /* CVDatabase.xcdatamodeld in Sources */,
 				4A7FBBF8293A0DB500FE0751 /* AppDelegate.swift in Sources */,
+				4A7FBC2C293A104C00FE0751 /* CoreDataContainer.swift in Sources */,
 				4A7FBBFA293A0DB500FE0751 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
