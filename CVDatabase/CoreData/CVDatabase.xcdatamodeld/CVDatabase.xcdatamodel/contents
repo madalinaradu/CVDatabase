@@ -9,7 +9,7 @@
         <attribute name="phone" optional="YES" attributeType="String"/>
         <attribute name="skills" optional="YES" attributeType="String"/>
         <attribute name="studies" optional="YES" attributeType="String"/>
-        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TemplateEntity" inverseName="cvs" inverseEntity="TemplateEntity"/>
+        <relationship name="template" maxCount="1" deletionRule="Nullify" destinationEntity="TemplateEntity" inverseName="cvs" inverseEntity="TemplateEntity"/>
     </entity>
     <entity name="TemplateEntity" representedClassName=".TemplateEntity" syncable="YES">
         <attribute name="hasAge" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>

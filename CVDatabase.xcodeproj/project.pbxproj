@@ -27,7 +27,7 @@
 		4A7FBC42293A1CB300FE0751 /* CV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC41293A1CB300FE0751 /* CV.swift */; };
 		4A7FBC45293A1E2F00FE0751 /* TemplateEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC44293A1E2F00FE0751 /* TemplateEntity+CoreDataProperties.swift */; };
 		4A7FBC48293A1E5200FE0751 /* CVEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC46293A1E5200FE0751 /* CVEntity+CoreDataClass.swift */; };
-		4A7FBC49293A1E5200FE0751 /* CVEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC47293A1E5200FE0751 /* CVEntity+CoreDataProperties.swift */; };
+		4A7FBC4B293A214F00FE0751 /* CVEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC4A293A214F00FE0751 /* CVEntity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +72,7 @@
 		4A7FBC41293A1CB300FE0751 /* CV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CV.swift; sourceTree = "<group>"; };
 		4A7FBC44293A1E2F00FE0751 /* TemplateEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TemplateEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4A7FBC46293A1E5200FE0751 /* CVEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		4A7FBC47293A1E5200FE0751 /* CVEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4A7FBC4A293A214F00FE0751 /* CVEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,8 +221,8 @@
 		4A7FBC43293A1D6900FE0751 /* CVEntity */ = {
 			isa = PBXGroup;
 			children = (
+				4A7FBC4A293A214F00FE0751 /* CVEntity+CoreDataProperties.swift */,
 				4A7FBC46293A1E5200FE0751 /* CVEntity+CoreDataClass.swift */,
-				4A7FBC47293A1E5200FE0751 /* CVEntity+CoreDataProperties.swift */,
 			);
 			path = CVEntity;
 			sourceTree = "<group>";
@@ -370,7 +370,7 @@
 				4A7FBC34293A17CF00FE0751 /* Template.swift in Sources */,
 				4A7FBC2C293A104C00FE0751 /* CoreDataContainer.swift in Sources */,
 				4A7FBBFA293A0DB500FE0751 /* SceneDelegate.swift in Sources */,
-				4A7FBC49293A1E5200FE0751 /* CVEntity+CoreDataProperties.swift in Sources */,
+				4A7FBC4B293A214F00FE0751 /* CVEntity+CoreDataProperties.swift in Sources */,
 				4A7FBC45293A1E2F00FE0751 /* TemplateEntity+CoreDataProperties.swift in Sources */,
 				4A7FBC48293A1E5200FE0751 /* CVEntity+CoreDataClass.swift in Sources */,
 			);

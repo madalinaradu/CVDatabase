@@ -24,7 +24,7 @@ extension CVEntity {
     @NSManaged public var experience: String?
     @NSManaged public var skills: String?
     @NSManaged public var personalProjects: String?
-    @NSManaged public var template: TemplateEntity?
+    @NSManaged public var template: TemplateEntity
 
 }
 
