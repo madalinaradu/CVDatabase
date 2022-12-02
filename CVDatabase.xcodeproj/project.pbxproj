@@ -139,7 +139,6 @@
 				4A7FBC55293A236700FE0751 /* Repositories */,
 				4A7FBBF7293A0DB500FE0751 /* AppDelegate.swift */,
 				4A7FBBF9293A0DB500FE0751 /* SceneDelegate.swift */,
-				4A7FBBFD293A0DB500FE0751 /* Main.storyboard */,
 				4A7FBC03293A0DB500FE0751 /* Assets.xcassets */,
 				4A7FBC05293A0DB500FE0751 /* LaunchScreen.storyboard */,
 				4A7FBC08293A0DB500FE0751 /* Info.plist */,
@@ -249,7 +248,9 @@
 		4A7FBC4D293A220D00FE0751 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4A7FBBFB293A0DB500FE0751 /* TemplatesViewController.swift */,
+				4A7FBC5A293A309B00FE0751 /* Storyboards */,
+				4A7FBC5E293A30D300FE0751 /* ViewControllers */,
+				4A7FBC5D293A30B700FE0751 /* TableViewCells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,6 +286,29 @@
 				4A7FBC56293A237F00FE0751 /* CVRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		4A7FBC5A293A309B00FE0751 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBBFD293A0DB500FE0751 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4A7FBC5D293A30B700FE0751 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		4A7FBC5E293A30D300FE0751 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBBFB293A0DB500FE0751 /* TemplatesViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

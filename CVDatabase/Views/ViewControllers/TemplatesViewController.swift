@@ -9,6 +9,10 @@ import UIKit
 
 class TemplatesViewController: UIViewController {
     
+    // MARK: - IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     // MARK: - Parameters
     
     let dependencyContainer: ServiceDependencyProvider = ServiceDependencyContainer()
@@ -21,6 +25,7 @@ class TemplatesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureTableView()
         viewModel?.getAllTemplates()
     }
 
@@ -29,7 +34,23 @@ class TemplatesViewController: UIViewController {
     func bindViewModel() {
         viewModel?.templates.bind { _ in
             print("Templates were updated")
+            self.tableView.reloadData()
         }
+    }
+    
+    func configureTableView() {
+        tableView.dataSource = self
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension TemplatesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.templates.value.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
 
