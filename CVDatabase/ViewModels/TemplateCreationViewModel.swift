@@ -8,8 +8,10 @@
 import Foundation
 
 protocol TemplateCreationViewModelType: AnyObject {
+    var template: Template { get }
+    
     func getNumberOfRows() -> Int
-    func getTemplateType(forIndex index: IndexPath) -> TemplateType?
+    func getTemplateTypeAndSelection(atIndex index: IndexPath) -> (templateType: TemplateType, isSelected: Bool)?
 }
 
 class TemplateCreationViewModel {
@@ -17,6 +19,15 @@ class TemplateCreationViewModel {
     // MARK: - Parameters
     
     private let dependencyContainer: ServiceDependencyProvider
+    
+    let template: Template = Template(hasName: false,
+                                      hasPhone: false,
+                                      hasEmail: false,
+                                      hasAge: false,
+                                      hasStudies: false,
+                                      hasExperience: false,
+                                      hasSkills: false,
+                                      hasPersonalProjects: false)
     
     // MARK: - Initialisers
     
@@ -32,8 +43,14 @@ extension TemplateCreationViewModel: TemplateCreationViewModelType {
         return TemplateType.allCases.count
     }
     
-    func getTemplateType(forIndex index: IndexPath) -> TemplateType? {
-        return TemplateType(rawValue: index.row)
+    func getTemplateTypeAndSelection(atIndex index: IndexPath) -> (templateType: TemplateType, isSelected: Bool)? {
+        guard let templateType = TemplateType(rawValue: index.row) else {
+            return nil
+        }
+        
+        let isSelected = template.getValueForType(templateType)
+        
+        return (templateType, isSelected)
     }
 }
 

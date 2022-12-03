@@ -16,7 +16,7 @@ class TemplateCreationViewController: UIViewController {
     
     // MARK: - Parameters
     
-    weak var viewModel: TemplateCreationViewModelType?
+    var viewModel: TemplateCreationViewModelType?
     static let storyboardName = "TemplateCreation"
     static let identifier = "TemplateCreationViewController"
     
@@ -43,7 +43,7 @@ class TemplateCreationViewController: UIViewController {
     
     func configureTableView() {
         tableView.dataSource = self
-        tableView.register(UINib(nibName: TemplateTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TemplateTableViewCell.identifier)
+        tableView.register(UINib(nibName: TemplateTypeTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TemplateTypeTableViewCell.identifier)
     }
 }
 
@@ -51,10 +51,19 @@ class TemplateCreationViewController: UIViewController {
 
 extension TemplateCreationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel?.getNumberOfRows() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TemplateTypeTableViewCell.identifier, for: indexPath) as? TemplateTypeTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        guard let (templateType, isSelected) = viewModel?.getTemplateTypeAndSelection(atIndex: indexPath) else {
+            return UITableViewCell()
+        }
+        
+        cell.configureWith(templateType, isSelected: isSelected)
+        return cell
     }
 }

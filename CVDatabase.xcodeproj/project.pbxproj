@@ -39,6 +39,8 @@
 		4AEB0EC3293A7053005ADCB1 /* TemplateCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0EC2293A7053005ADCB1 /* TemplateCreationViewController.swift */; };
 		4AEB0EC6293A71C1005ADCB1 /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0EC5293A71C1005ADCB1 /* Storyboardable.swift */; };
 		4AEB0EC8293A72C5005ADCB1 /* TemplateCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0EC7293A72C5005ADCB1 /* TemplateCreationViewModel.swift */; };
+		4AEB0ECD293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0ECB293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift */; };
+		4AEB0ECE293A7BD6005ADCB1 /* TemplateTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AEB0ECC293A7BD6005ADCB1 /* TemplateTypeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		4AEB0EC2293A7053005ADCB1 /* TemplateCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCreationViewController.swift; sourceTree = "<group>"; };
 		4AEB0EC5293A71C1005ADCB1 /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
 		4AEB0EC7293A72C5005ADCB1 /* TemplateCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCreationViewModel.swift; sourceTree = "<group>"; };
+		4AEB0ECB293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTypeTableViewCell.swift; sourceTree = "<group>"; };
+		4AEB0ECC293A7BD6005ADCB1 /* TemplateTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateTypeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,8 +321,8 @@
 		4A7FBC5D293A30B700FE0751 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				4A7FBC5F293A346400FE0751 /* TemplateTableViewCell.swift */,
-				4A7FBC60293A346400FE0751 /* TemplateTableViewCell.xib */,
+				4AEB0ECA293A7B28005ADCB1 /* TemplateTypeTableViewCell */,
+				4AEB0EC9293A7B1B005ADCB1 /* TemplateTableViewCell */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -338,6 +342,24 @@
 				4AEB0EC5293A71C1005ADCB1 /* Storyboardable.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4AEB0EC9293A7B1B005ADCB1 /* TemplateTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4A7FBC5F293A346400FE0751 /* TemplateTableViewCell.swift */,
+				4A7FBC60293A346400FE0751 /* TemplateTableViewCell.xib */,
+			);
+			path = TemplateTableViewCell;
+			sourceTree = "<group>";
+		};
+		4AEB0ECA293A7B28005ADCB1 /* TemplateTypeTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4AEB0ECB293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift */,
+				4AEB0ECC293A7BD6005ADCB1 /* TemplateTypeTableViewCell.xib */,
+			);
+			path = TemplateTypeTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A7FBC07293A0DB500FE0751 /* LaunchScreen.storyboard in Resources */,
+				4AEB0ECE293A7BD6005ADCB1 /* TemplateTypeTableViewCell.xib in Resources */,
 				4A7FBC62293A346400FE0751 /* TemplateTableViewCell.xib in Resources */,
 				4A7FBC04293A0DB500FE0751 /* Assets.xcassets in Resources */,
 				4AEB0EC1293A7027005ADCB1 /* TemplateCreation.storyboard in Resources */,
@@ -494,6 +517,7 @@
 				4AEB0EC6293A71C1005ADCB1 /* Storyboardable.swift in Sources */,
 				4A7FBBFA293A0DB500FE0751 /* SceneDelegate.swift in Sources */,
 				4A7FBC4B293A214F00FE0751 /* CVEntity+CoreDataProperties.swift in Sources */,
+				4AEB0ECD293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift in Sources */,
 				4A7FBC45293A1E2F00FE0751 /* TemplateEntity+CoreDataProperties.swift in Sources */,
 				4A7FBC48293A1E5200FE0751 /* CVEntity+CoreDataClass.swift in Sources */,
 				4AEB0EC8293A72C5005ADCB1 /* TemplateCreationViewModel.swift in Sources */,

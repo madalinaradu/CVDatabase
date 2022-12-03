@@ -67,3 +67,26 @@ extension Template {
         (hasPersonalProjects ? "PersonalProjects" : "")
     }
 }
+
+extension Template {
+    func getValueForType(_ type: TemplateType) -> Bool {
+        switch type {
+        case .name:
+            return self.hasName
+        case .phone:
+            return self.hasPhone
+        case .email:
+            return self.hasEmail
+        case .age:
+            return self.hasAge
+        case .studies:
+            return self.hasStudies
+        case .experience:
+            return self.hasExperience
+        case .skills:
+            return self.hasSkills
+        case .personalProjects:
+            return self.hasPersonalProjects
+        }
+    }
+}

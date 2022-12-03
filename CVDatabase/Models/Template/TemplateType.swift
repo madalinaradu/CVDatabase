@@ -8,7 +8,7 @@
 import Foundation
 
 enum TemplateType: Int, CaseIterable {
-    case name = 1
+    case name = 0
     case phone
     case email
     case age
@@ -23,6 +23,27 @@ enum TemplateType: Int, CaseIterable {
             return .smallTextInput
         case .studies, .experience, .skills, .personalProjects:
             return .bigTextInput
+        }
+    }
+    
+    var name: String {
+        switch self {
+        case .name:
+            return "Name"
+        case .phone:
+            return "Phone"
+        case .email:
+            return "Email"
+        case .age:
+            return "Age"
+        case .studies:
+            return "Studies"
+        case .experience:
+            return "Experience"
+        case .skills:
+            return "Skills"
+        case .personalProjects:
+            return "Personal Projects"
         }
     }
 }
