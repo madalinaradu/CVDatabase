@@ -26,7 +26,7 @@ final class CVRepository {
     
     func saveTemplate(_ template: Template,
                               context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext(),
-                              saveContext: Bool = false) {
+                              saveContext: Bool = true) {
         let _ = template.convertToCoreDataEntity(context: context)
         guard saveContext else {
             return

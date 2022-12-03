@@ -9,10 +9,13 @@ import Foundation
 
 protocol TemplateCreationViewModelType: AnyObject {
     var template: Template { get }
+    var templateSavingIsComplete: Observable<Bool> { get }
     
     func getNumberOfRows() -> Int
     func getTemplateTypeAndSelection(atIndex index: IndexPath) -> (templateType: TemplateType, isSelected: Bool)?
     func toggleTypeStatus(for index: IndexPath)
+    
+    func saveTemplate()
 }
 
 class TemplateCreationViewModel {
@@ -29,6 +32,8 @@ class TemplateCreationViewModel {
                                       hasExperience: false,
                                       hasSkills: false,
                                       hasPersonalProjects: false)
+    
+    var templateSavingIsComplete: Observable<Bool> = .init(false)
     
     // MARK: - Initialisers
     
@@ -60,6 +65,11 @@ extension TemplateCreationViewModel: TemplateCreationViewModelType {
         }
         
         template.toggleValueForType(templateType)
+    }
+    
+    func saveTemplate() {
+        dependencyContainer.cvRepository.saveTemplate(template)
+        templateSavingIsComplete.value = true
     }
 }
 

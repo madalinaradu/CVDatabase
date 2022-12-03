@@ -32,12 +32,20 @@ class TemplateCreationViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBAction func saveTemplateButtonWasTapped(_ sender: Any) {
-        print("save template button was tapped")
+        viewModel?.saveTemplate()
     }
     
     // MARK: - Instance functions
     
-    func bindViewModel() { }
+    func bindViewModel() {
+        viewModel?.templateSavingIsComplete.bind { [weak self] isDone in
+            guard isDone else {
+                return
+            }
+            
+            self?.navigationController?.popViewController(animated: true)
+        }
+    }
     
     func configureTableView() {
         tableView.dataSource = self
