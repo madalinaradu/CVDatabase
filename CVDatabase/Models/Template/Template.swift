@@ -9,14 +9,14 @@ import Foundation
 import CoreData
 
 class Template {
-    let hasName: Bool
-    let hasPhone: Bool
-    let hasEmail: Bool
-    let hasAge: Bool
-    let hasStudies: Bool
-    let hasExperience: Bool
-    let hasSkills: Bool
-    let hasPersonalProjects: Bool
+    var hasName: Bool
+    var hasPhone: Bool
+    var hasEmail: Bool
+    var hasAge: Bool
+    var hasStudies: Bool
+    var hasExperience: Bool
+    var hasSkills: Bool
+    var hasPersonalProjects: Bool
     
     init(
         hasName: Bool,
@@ -72,21 +72,42 @@ extension Template {
     func getValueForType(_ type: TemplateType) -> Bool {
         switch type {
         case .name:
-            return self.hasName
+            return hasName
         case .phone:
-            return self.hasPhone
+            return hasPhone
         case .email:
-            return self.hasEmail
+            return hasEmail
         case .age:
-            return self.hasAge
+            return hasAge
         case .studies:
-            return self.hasStudies
+            return hasStudies
         case .experience:
-            return self.hasExperience
+            return hasExperience
         case .skills:
-            return self.hasSkills
+            return hasSkills
         case .personalProjects:
-            return self.hasPersonalProjects
+            return hasPersonalProjects
+        }
+    }
+    
+    func toggleValueForType(_ type: TemplateType) {
+        switch type {
+        case .name:
+            hasName.toggle()
+        case .phone:
+            hasPhone.toggle()
+        case .email:
+            hasEmail.toggle()
+        case .age:
+            hasAge.toggle()
+        case .studies:
+            hasStudies.toggle()
+        case .experience:
+            hasExperience.toggle()
+        case .skills:
+            hasSkills.toggle()
+        case .personalProjects:
+            hasPersonalProjects.toggle()
         }
     }
 }

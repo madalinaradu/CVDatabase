@@ -37,12 +37,11 @@ class TemplateCreationViewController: UIViewController {
     
     // MARK: - Instance functions
     
-    func bindViewModel() {
-        
-    }
+    func bindViewModel() { }
     
     func configureTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UINib(nibName: TemplateTypeTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TemplateTypeTableViewCell.identifier)
     }
 }
@@ -65,5 +64,14 @@ extension TemplateCreationViewController: UITableViewDataSource {
         
         cell.configureWith(templateType, isSelected: isSelected)
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension TemplateCreationViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel?.toggleTypeStatus(for: indexPath)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }

@@ -12,6 +12,7 @@ protocol TemplateCreationViewModelType: AnyObject {
     
     func getNumberOfRows() -> Int
     func getTemplateTypeAndSelection(atIndex index: IndexPath) -> (templateType: TemplateType, isSelected: Bool)?
+    func toggleTypeStatus(for index: IndexPath)
 }
 
 class TemplateCreationViewModel {
@@ -51,6 +52,14 @@ extension TemplateCreationViewModel: TemplateCreationViewModelType {
         let isSelected = template.getValueForType(templateType)
         
         return (templateType, isSelected)
+    }
+    
+    func toggleTypeStatus(for index: IndexPath) {
+        guard let templateType = TemplateType(rawValue: index.row) else {
+            return
+        }
+        
+        template.toggleValueForType(templateType)
     }
 }
 
