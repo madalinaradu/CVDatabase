@@ -17,6 +17,7 @@ class TemplateCreationViewController: UIViewController {
     // MARK: - Parameters
     
     var viewModel: TemplateCreationViewModelType?
+    var delegate: TemplateCreationDelegate?
     static let storyboardName = "TemplateCreation"
     static let identifier = "TemplateCreationViewController"
     
@@ -43,6 +44,7 @@ class TemplateCreationViewController: UIViewController {
                 return
             }
             
+            self?.delegate?.templateWasCreated()
             self?.navigationController?.popViewController(animated: true)
         }
     }

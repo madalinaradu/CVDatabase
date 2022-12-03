@@ -41,6 +41,7 @@
 		4AEB0EC8293A72C5005ADCB1 /* TemplateCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0EC7293A72C5005ADCB1 /* TemplateCreationViewModel.swift */; };
 		4AEB0ECD293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0ECB293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift */; };
 		4AEB0ECE293A7BD6005ADCB1 /* TemplateTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AEB0ECC293A7BD6005ADCB1 /* TemplateTypeTableViewCell.xib */; };
+		4AEB0ED1293BE9DC005ADCB1 /* TemplateCreationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0ED0293BE9DC005ADCB1 /* TemplateCreationDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		4AEB0EC7293A72C5005ADCB1 /* TemplateCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCreationViewModel.swift; sourceTree = "<group>"; };
 		4AEB0ECB293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTypeTableViewCell.swift; sourceTree = "<group>"; };
 		4AEB0ECC293A7BD6005ADCB1 /* TemplateTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateTypeTableViewCell.xib; sourceTree = "<group>"; };
+		4AEB0ED0293BE9DC005ADCB1 /* TemplateCreationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCreationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			children = (
 				4AEB0EC4293A7193005ADCB1 /* Extensions */,
 				4A7FBC4E293A225900FE0751 /* Architecture */,
+				4AEB0ECF293BE9B2005ADCB1 /* Delegates */,
 				4A7FBC4D293A220D00FE0751 /* Views */,
 				4A7FBC4C293A220700FE0751 /* ViewModels */,
 				4A7FBC32293A17B800FE0751 /* Models */,
@@ -362,6 +365,14 @@
 			path = TemplateTypeTableViewCell;
 			sourceTree = "<group>";
 		};
+		4AEB0ECF293BE9B2005ADCB1 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				4AEB0ED0293BE9DC005ADCB1 /* TemplateCreationDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -513,6 +524,7 @@
 				4A7FBC64293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift in Sources */,
 				4A7FBC61293A346400FE0751 /* TemplateTableViewCell.swift in Sources */,
 				4A7FBC34293A17CF00FE0751 /* Template.swift in Sources */,
+				4AEB0ED1293BE9DC005ADCB1 /* TemplateCreationDelegate.swift in Sources */,
 				4A7FBC2C293A104C00FE0751 /* CoreDataContainer.swift in Sources */,
 				4AEB0EC6293A71C1005ADCB1 /* Storyboardable.swift in Sources */,
 				4A7FBBFA293A0DB500FE0751 /* SceneDelegate.swift in Sources */,

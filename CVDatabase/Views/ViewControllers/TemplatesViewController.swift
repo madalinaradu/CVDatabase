@@ -41,6 +41,7 @@ class TemplatesViewController: UIViewController {
         }
         let viewModel = TemplateCreationViewModel(dependencyContainer: dependencyContainer)
         controller.viewModel = viewModel
+        controller.delegate = self
         navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -77,6 +78,12 @@ extension TemplatesViewController: UITableViewDataSource {
         
         cell.configureWith(template)
         return cell
+    }
+}
+
+extension TemplatesViewController: TemplateCreationDelegate {
+    func templateWasCreated() {
+        viewModel?.getAllTemplates()
     }
 }
 
