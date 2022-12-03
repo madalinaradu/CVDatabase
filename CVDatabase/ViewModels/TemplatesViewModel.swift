@@ -13,6 +13,7 @@ protocol TemplatesViewModelType: AnyObject {
     func getAllTemplates()
     func getTemplatesCount() -> Int
     func getTemplate(atIndex: IndexPath) -> Template?
+    func removeTemplate(atIndex: IndexPath)
 }
 
 class TemplatesViewModel {
@@ -48,5 +49,10 @@ extension TemplatesViewModel: TemplatesViewModelType {
         }
         
         return templates.value[index.row]
+    }
+    
+    func removeTemplate(atIndex index: IndexPath) {
+        dependencyContainer.cvRepository.removeTemplate(templates.value[index.row])
+        templates.value.remove(at: index.row)
     }
 }

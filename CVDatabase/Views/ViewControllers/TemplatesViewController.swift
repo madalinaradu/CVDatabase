@@ -79,7 +79,17 @@ extension TemplatesViewController: UITableViewDataSource {
         cell.configureWith(template)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            viewModel?.removeTemplate(atIndex: indexPath)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
 }
+
+// MARK: - TemplateCreationDelegate
 
 extension TemplatesViewController: TemplateCreationDelegate {
     func templateWasCreated() {

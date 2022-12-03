@@ -13,6 +13,9 @@ protocol CVRepositoryType {
     func saveTemplate(_ template: Template,
                               context: NSManagedObjectContext,
                               saveContext: Bool)
+    func removeTemplate(_ template: Template,
+                        context: NSManagedObjectContext,
+                        saveContext: Bool)
 }
 
 final class CVRepository {
@@ -36,5 +39,11 @@ final class CVRepository {
         } catch {
             print("Save failed")
         }
+    }
+    
+    func removeTemplate(_ template: Template,
+                              context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext(),
+                              saveContext: Bool = true) {
+        
     }
 }
