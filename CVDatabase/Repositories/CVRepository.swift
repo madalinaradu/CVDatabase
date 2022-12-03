@@ -15,7 +15,7 @@ protocol CVRepositoryType {
                               saveContext: Bool)
     func removeTemplate(_ template: Template,
                         context: NSManagedObjectContext,
-                        saveContext: Bool)
+                        saveContext: Bool) -> Bool
 }
 
 final class CVRepository {
@@ -42,8 +42,20 @@ final class CVRepository {
     }
     
     func removeTemplate(_ template: Template,
-                              context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext(),
-                              saveContext: Bool = true) {
-        
+                              context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> Bool {
+        guard let id = template.id else {
+            return false
+        }
+        guard TemplateEntity.deleteEntityWithId(of: id, context: context) else {
+            return false
+        }
+        do {
+            try context.saveIfNeeded()
+            print("Saving context after deleting succeeded")
+            return true
+        } catch {
+            print("Saving context after deleting failed")
+            return false
+        }
     }
 }

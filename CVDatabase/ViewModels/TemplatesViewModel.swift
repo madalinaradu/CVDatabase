@@ -52,7 +52,12 @@ extension TemplatesViewModel: TemplatesViewModelType {
     }
     
     func removeTemplate(atIndex index: IndexPath) {
-        dependencyContainer.cvRepository.removeTemplate(templates.value[index.row])
+        let templateWasRemoved = dependencyContainer.cvRepository.removeTemplate(templates.value[index.row])
+        guard templateWasRemoved else {
+            print("The deletion failed")
+            return
+        }
+        print("The deletion succeeded")
         templates.value.remove(at: index.row)
     }
 }

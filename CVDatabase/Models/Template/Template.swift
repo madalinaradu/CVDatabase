@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class Template {
+    var id: NSManagedObjectID?
     var hasName: Bool
     var hasPhone: Bool
     var hasEmail: Bool
@@ -19,6 +20,7 @@ class Template {
     var hasPersonalProjects: Bool
     
     init(
+        id: NSManagedObjectID?,
         hasName: Bool,
         hasPhone: Bool,
         hasEmail: Bool,
@@ -28,6 +30,7 @@ class Template {
         hasSkills: Bool,
         hasPersonalProjects: Bool
     ) {
+        self.id = id
         self.hasName = hasName
         self.hasPhone = hasPhone
         self.hasEmail = hasEmail
@@ -42,14 +45,14 @@ class Template {
 extension Template {
     func convertToCoreDataEntity(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> TemplateEntity {
         let templateEntity = TemplateEntity(context: context)
-        templateEntity.hasName = self.hasName
-        templateEntity.hasPhone = self.hasPhone
-        templateEntity.hasEmail = self.hasEmail
-        templateEntity.hasAge = self.hasAge
-        templateEntity.hasStudies = self.hasStudies
-        templateEntity.hasExperience = self.hasExperience
-        templateEntity.hasSkills = self.hasSkills
-        templateEntity.hasPersonalProjects = self.hasPersonalProjects
+        templateEntity.hasName = hasName
+        templateEntity.hasPhone = hasPhone
+        templateEntity.hasEmail = hasEmail
+        templateEntity.hasAge = hasAge
+        templateEntity.hasStudies = hasStudies
+        templateEntity.hasExperience = hasExperience
+        templateEntity.hasSkills = hasSkills
+        templateEntity.hasPersonalProjects = hasPersonalProjects
         return templateEntity
     }
 }
@@ -64,7 +67,7 @@ extension Template {
         (hasStudies ? "Studies, " : "") +
         (hasExperience ? "Experience, " : "") +
         (hasSkills ? "Skills, " : "") +
-        (hasPersonalProjects ? "PersonalProjects" : "")
+        (hasPersonalProjects ? "Personal Projects" : "")
     }
 }
 

@@ -24,7 +24,8 @@ class TemplateCreationViewModel {
     
     private let dependencyContainer: ServiceDependencyProvider
     
-    let template: Template = Template(hasName: false,
+    let template: Template = Template(id: nil,
+                                      hasName: false,
                                       hasPhone: false,
                                       hasEmail: false,
                                       hasAge: false,

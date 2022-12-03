@@ -17,14 +17,15 @@ public class TemplateEntity: NSManagedObject {
 extension TemplateEntity {
     // convert to a Data Transfer Object
     func convertToDTO() -> Template {
-        return Template(hasName: self.hasName,
-                        hasPhone: self.hasPhone,
-                        hasEmail: self.hasEmail,
-                        hasAge: self.hasAge,
-                        hasStudies: self.hasStudies,
-                        hasExperience: self.hasExperience,
-                        hasSkills: self.hasSkills,
-                        hasPersonalProjects: self.hasPersonalProjects)
+        return Template(id: objectID,
+                        hasName: hasName,
+                        hasPhone: hasPhone,
+                        hasEmail: hasEmail,
+                        hasAge: hasAge,
+                        hasStudies: hasStudies,
+                        hasExperience: hasExperience,
+                        hasSkills: hasSkills,
+                        hasPersonalProjects: hasPersonalProjects)
     }
 }
 
@@ -42,5 +43,15 @@ extension TemplateEntity {
     
     static func deleteAll(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) {
         context.deleteRecords(for: "TemplateEntity", context: context)
+    }
+    
+    static func deleteEntityWithId(of id: NSManagedObjectID, context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> Bool {
+        do {
+            let entity = try context.existingObject(with: id)
+            context.delete(entity)
+            return true
+        } catch {
+            return false
+        }
     }
 }
