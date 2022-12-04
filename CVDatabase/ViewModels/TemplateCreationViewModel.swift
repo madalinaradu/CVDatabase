@@ -20,9 +20,11 @@ protocol TemplateCreationViewModelType: AnyObject {
 
 class TemplateCreationViewModel {
     
+    typealias Dependencies = TemplateRepositoryProvider
+    
     // MARK: - Parameters
     
-    private let dependencyContainer: ServiceDependencyProvider
+    private let dependencyContainer: Dependencies
     
     let template: Template = Template(id: nil,
                                       hasName: false,
@@ -38,7 +40,7 @@ class TemplateCreationViewModel {
     
     // MARK: - Initialisers
     
-    init(dependencyContainer: ServiceDependencyProvider) {
+    init(dependencyContainer: Dependencies) {
         self.dependencyContainer = dependencyContainer
     }
 }

@@ -18,14 +18,16 @@ protocol CVListViewModelType: AnyObject {
 
 class CVListViewModel {
     
+    typealias Dependencies = TemplateRepositoryProvider
+    
     // MARK: - Parameters
     
-    private let dependencyContainer: ServiceDependencyProvider
+    private let dependencyContainer: Dependencies
     let cvs: Observable<[CV]> = .init([])
     
     // MARK: - Initialisers
     
-    init(dependencyContainer: ServiceDependencyProvider) {
+    init(dependencyContainer: Dependencies) {
         self.dependencyContainer = dependencyContainer
     }
 }

@@ -18,14 +18,16 @@ protocol TemplateListViewModelType: AnyObject {
 
 class TemplateListViewModel {
     
+    typealias Dependencies = TemplateRepositoryProvider
+    
     // MARK: - Parameters
     
-    private let dependencyContainer: ServiceDependencyProvider
+    private let dependencyContainer: Dependencies
     let templates: Observable<[Template]> = .init([])
     
     // MARK: - Initialisers
     
-    init(dependencyContainer: ServiceDependencyProvider) {
+    init(dependencyContainer: Dependencies) {
         self.dependencyContainer = dependencyContainer
     }
 }
