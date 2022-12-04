@@ -15,8 +15,8 @@ class TemplateListViewController: UIViewController {
     
     // MARK: - Parameters
     
-    let dependencyContainer: ServiceDependencyProvider = ServiceDependencyContainer()
-    lazy var viewModel: TemplateListViewModelType? = {
+    private let dependencyContainer: ServiceDependencyProvider = ServiceDependencyContainer()
+    private lazy var viewModel: TemplateListViewModelType? = {
         return TemplateListViewModel(dependencyContainer: dependencyContainer)
     }()
 
@@ -25,34 +25,41 @@ class TemplateListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavigationItems()
         configureTableView()
         viewModel?.getAllTemplates()
         bindViewModel()
     }
-
-    // MARK: - IBOutlets
-    
-    @IBAction func addButtonWasTapped(_ sender: Any) {
-        let vc = TemplateCreationViewController.loadFromNib()
-        let viewModel = TemplateCreationViewModel(dependencyContainer: dependencyContainer)
-        vc.viewModel = viewModel
-        vc.delegate = self
-        navigationController?.pushViewController(vc, animated: true)
-    }
     
     // MARK: - Instance functions
     
-    func bindViewModel() {
+    private func bindViewModel() {
         viewModel?.templates.bind { _ in
             print("Templates were updated")
             self.tableView.reloadData()
         }
     }
     
-    func configureTableView() {
+    private func configureNavigationItems() {
+        let addTemplateBarButtonItem = UIBarButtonItem(title: "+",
+                                                       style: .plain,
+                                                       target: self,
+                                                       action: #selector(addButtonWasTapped))
+        self.navigationItem.rightBarButtonItem  = addTemplateBarButtonItem
+    }
+    
+    private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: TemplateTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TemplateTableViewCell.identifier)
+    }
+    
+    @objc private func addButtonWasTapped() {
+        let vc = TemplateCreationViewController.loadFromNib()
+        let viewModel = TemplateCreationViewModel(dependencyContainer: dependencyContainer)
+        vc.viewModel = viewModel
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
