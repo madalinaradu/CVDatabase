@@ -18,7 +18,7 @@ protocol CVListViewModelType: AnyObject {
 
 class CVListViewModel {
     
-    typealias Dependencies = TemplateRepositoryProvider
+    typealias Dependencies = CVRepositoryProvider
     
     // MARK: - Parameters
     

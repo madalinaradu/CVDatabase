@@ -45,7 +45,8 @@ extension TemplateEntity {
         context.deleteRecords(for: "TemplateEntity", context: context)
     }
     
-    static func deleteEntityWithId(of id: NSManagedObjectID, context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> Bool {
+    static func deleteEntityWithId(of id: NSManagedObjectID,
+                                   context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> Bool {
         do {
             let entity = try context.existingObject(with: id)
             context.delete(entity)

@@ -46,8 +46,7 @@ class CV {
 }
 
 extension CV {
-    func convertToCoreDataEntity() -> CVEntity {
-        let context = CoreDataContainer.shared.newBackgroundContext()
+    func convertToCoreDataEntity(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> CVEntity {
         let cvEntity = CVEntity(context: context)
         cvEntity.name = self.name
         cvEntity.phone = self.phone
