@@ -15,7 +15,6 @@ class TemplateListViewController: UIViewController {
     
     // MARK: - Parameters
     
-    private let dependencyContainer: ServiceDependencyProvider = ServiceDependencyContainer()
     var viewModel: TemplateListViewModelType?
     weak var coordinator: TemplateCoordinator?
 

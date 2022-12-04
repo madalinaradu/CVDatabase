@@ -17,8 +17,6 @@ class CVListViewController: UIViewController {
     
     var viewModel: CVListViewModelType?
     weak var coordinator: CVCoordinator?
-    static let xibName = "CVListViewController"
-    static let identifier = "CVListViewController"
 
     // MARK: - View Lifecycle
     
