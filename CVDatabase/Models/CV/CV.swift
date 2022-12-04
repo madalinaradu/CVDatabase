@@ -6,19 +6,22 @@
 //
 
 import Foundation
+import CoreData
 
 class CV {
-    let template: Template
-    let name: String?
-    let phone: String?
-    let email: String?
-    let age: Int?
-    let studies: String?
-    let experience: String?
-    let skills: String?
-    let personalProjects: String?
+    var id: NSManagedObjectID?
+    var template: Template
+    var name: String?
+    var phone: String?
+    var email: String?
+    var age: Int?
+    var studies: String?
+    var experience: String?
+    var skills: String?
+    var personalProjects: String?
     
     init(
+        id: NSManagedObjectID?,
         template: Template,
         name: String?,
         phone: String?,
@@ -29,6 +32,7 @@ class CV {
         skills: String?,
         personalProjects: String?
     ) {
+        self.id = id
         self.template = template
         self.name = name
         self.phone = phone

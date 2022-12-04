@@ -17,14 +17,15 @@ public class CVEntity: NSManagedObject {
 extension CVEntity {
     // convert to a Data Transfer Object
     func convertToDTO() -> CV {
-        return CV(template: self.template.convertToDTO(),
-                  name: self.name,
-                  phone: self.phone,
-                  email: self.email,
-                  age: Int(self.age),
-                  studies: self.studies,
-                  experience: self.experience,
-                  skills: self.skills,
-                  personalProjects: self.personalProjects)
+        return CV(id: objectID,
+                  template: template.convertToDTO(),
+                  name: name,
+                  phone: phone,
+                  email: email,
+                  age: Int(age),
+                  studies: studies,
+                  experience: experience,
+                  skills: skills,
+                  personalProjects: personalProjects)
     }
 }
