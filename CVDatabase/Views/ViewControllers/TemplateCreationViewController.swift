@@ -16,7 +16,8 @@ class TemplateCreationViewController: UIViewController {
     // MARK: - Parameters
     
     var viewModel: TemplateCreationViewModelType?
-    var delegate: TemplateCreationDelegate?
+    weak var delegate: TemplateCreationDelegate?
+    weak var coordinator: TemplateCoordinator?
     
     // MARK: - View Lifecycle
     

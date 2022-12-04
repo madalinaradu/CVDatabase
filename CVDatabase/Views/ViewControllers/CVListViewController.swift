@@ -15,8 +15,8 @@ class CVListViewController: UIViewController {
     
     // MARK: - Parameters
     
-    let dependencyContainer: ServiceDependencyProvider = ServiceDependencyContainer()
     var viewModel: CVListViewModelType?
+//    weak var coordinator: CVCoordinator?
     static let xibName = "CVListViewController"
     static let identifier = "CVListViewController"
 
@@ -28,19 +28,6 @@ class CVListViewController: UIViewController {
         configureTableView()
         viewModel?.getAllCVs()
         bindViewModel()
-    }
-
-    // MARK: - IBOutlets
-    
-    @IBAction func addButtonWasTapped(_ sender: Any) {
-//        let storyboard = UIStoryboard(name: TemplateCreationViewController.storyboardName, bundle: nil)
-//        guard let controller = storyboard.instantiateViewController(withIdentifier: TemplateCreationViewController.identifier) as? TemplateCreationViewController else {
-//            return
-//        }
-//        let viewModel = TemplateCreationViewModel(dependencyContainer: dependencyContainer)
-//        controller.viewModel = viewModel
-//        controller.delegate = self
-//        navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: - Instance functions

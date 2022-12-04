@@ -27,8 +27,6 @@ class TemplateListViewModel {
     
     init(dependencyContainer: ServiceDependencyProvider) {
         self.dependencyContainer = dependencyContainer
-        
-        getAllTemplates()
     }
 }
 

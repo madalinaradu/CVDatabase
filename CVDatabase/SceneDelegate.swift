@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var coordinator: TemplateCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Initial screen setup
@@ -18,43 +18,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         /// 2. Create a new UIWindow using the windowScene constructor which takes in a window scene.
-        let window = UIWindow(windowScene: windowScene)
+        window = UIWindow(windowScene: windowScene)
         
-        /// 3. Create a view hierarchy programmatically
-        let viewController = TemplateListViewController.loadFromNib()
-        let navigation = UINavigationController(rootViewController: viewController)
+        /// 3.  Create the main navigation controller
+        let navController = UINavigationController()
         
-        /// 4. Set the root view controller of the window with your view controller
-        window.rootViewController = navigation
+        /// 4. set the navigation controller as the rootviewcontroller
+        window?.rootViewController = navController
         
-        /// 5. Set the window and call makeKeyAndVisible()
-        self.window = window
-        window.makeKeyAndVisible()
+        /// 5. create the main instance of the dependency container
+        /// this will be passed in the entire app through dependency injection
+        let dependencyCointainer = ServiceDependencyContainer()
+        
+        /// 6. create the main coordinator
+        coordinator = TemplateCoordinator(navigationController: navController,
+                                          dependencyContainer: dependencyCointainer)
+        
+        /// 7. tell the coordinator to take over control
+        coordinator?.start()
+        
+        /// 8. Show the window
+        window?.makeKeyAndVisible()
         
         // Core Data setup
         CoreDataContainer.shared.setup()
-    }
-
-    func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
-    }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-    }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

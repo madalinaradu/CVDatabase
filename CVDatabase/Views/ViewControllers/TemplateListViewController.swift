@@ -16,9 +16,8 @@ class TemplateListViewController: UIViewController {
     // MARK: - Parameters
     
     private let dependencyContainer: ServiceDependencyProvider = ServiceDependencyContainer()
-    private lazy var viewModel: TemplateListViewModelType? = {
-        return TemplateListViewModel(dependencyContainer: dependencyContainer)
-    }()
+    var viewModel: TemplateListViewModelType?
+    weak var coordinator: TemplateCoordinator?
 
     // MARK: - View Lifecycle
     
@@ -55,11 +54,7 @@ class TemplateListViewController: UIViewController {
     }
     
     @objc private func addButtonWasTapped() {
-        let vc = TemplateCreationViewController.loadFromNib()
-        let viewModel = TemplateCreationViewModel(dependencyContainer: dependencyContainer)
-        vc.viewModel = viewModel
-        vc.delegate = self
-        navigationController?.pushViewController(vc, animated: true)
+        coordinator?.openTemplateCreation(from: self)
     }
 }
 

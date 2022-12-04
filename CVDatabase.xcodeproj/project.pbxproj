@@ -41,6 +41,9 @@
 		4AD9658D293CB96B0062C605 /* UIViewController+loadFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9658C293CB96B0062C605 /* UIViewController+loadFromNib.swift */; };
 		4AD9658F293CBA810062C605 /* TemplateCreationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD9658E293CBA810062C605 /* TemplateCreationViewController.xib */; };
 		4AD96591293CBE080062C605 /* TemplateListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD96590293CBE080062C605 /* TemplateListViewController.xib */; };
+		4AD96594293CC04B0062C605 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD96593293CC04B0062C605 /* Coordinator.swift */; };
+		4AD96597293CC0BD0062C605 /* TemplateCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD96596293CC0BD0062C605 /* TemplateCoordinator.swift */; };
+		4AD96599293CC0C20062C605 /* CVCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD96598293CC0C20062C605 /* CVCoordinator.swift */; };
 		4AEB0EC3293A7053005ADCB1 /* TemplateCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0EC2293A7053005ADCB1 /* TemplateCreationViewController.swift */; };
 		4AEB0EC8293A72C5005ADCB1 /* TemplateCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0EC7293A72C5005ADCB1 /* TemplateCreationViewModel.swift */; };
 		4AEB0ECD293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0ECB293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift */; };
@@ -104,6 +107,9 @@
 		4AD9658C293CB96B0062C605 /* UIViewController+loadFromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+loadFromNib.swift"; sourceTree = "<group>"; };
 		4AD9658E293CBA810062C605 /* TemplateCreationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateCreationViewController.xib; sourceTree = "<group>"; };
 		4AD96590293CBE080062C605 /* TemplateListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateListViewController.xib; sourceTree = "<group>"; };
+		4AD96593293CC04B0062C605 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		4AD96596293CC0BD0062C605 /* TemplateCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCoordinator.swift; sourceTree = "<group>"; };
+		4AD96598293CC0C20062C605 /* CVCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCoordinator.swift; sourceTree = "<group>"; };
 		4AEB0EC2293A7053005ADCB1 /* TemplateCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCreationViewController.swift; sourceTree = "<group>"; };
 		4AEB0EC7293A72C5005ADCB1 /* TemplateCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCreationViewModel.swift; sourceTree = "<group>"; };
 		4AEB0ECB293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTypeTableViewCell.swift; sourceTree = "<group>"; };
@@ -161,6 +167,7 @@
 			children = (
 				4AEB0EC4293A7193005ADCB1 /* Extensions */,
 				4A7FBC4E293A225900FE0751 /* Architecture */,
+				4AD96595293CC0930062C605 /* Coordinators */,
 				4AEB0ECF293BE9B2005ADCB1 /* Delegates */,
 				4A7FBC4D293A220D00FE0751 /* Views */,
 				4A7FBC4C293A220700FE0751 /* ViewModels */,
@@ -291,6 +298,7 @@
 		4A7FBC4E293A225900FE0751 /* Architecture */ = {
 			isa = PBXGroup;
 			children = (
+				4AD96592293CC02B0062C605 /* Coordinator */,
 				4A7FBC52293A234100FE0751 /* DependencyInjection */,
 				4A7FBC4F293A228400FE0751 /* DataBinding */,
 			);
@@ -348,6 +356,23 @@
 				4AD96585293CB64D0062C605 /* CVListViewController.xib */,
 			);
 			path = XIBs;
+			sourceTree = "<group>";
+		};
+		4AD96592293CC02B0062C605 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4AD96593293CC04B0062C605 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		4AD96595293CC0930062C605 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				4AD96596293CC0BD0062C605 /* TemplateCoordinator.swift */,
+				4AD96598293CC0C20062C605 /* CVCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		4AEB0EC4293A7193005ADCB1 /* Extensions */ = {
@@ -524,16 +549,19 @@
 				4A7FBC51293A229200FE0751 /* Observable.swift in Sources */,
 				4A7FBC38293A193D00FE0751 /* TemplateFieldType.swift in Sources */,
 				4A7FBC2E293A109700FE0751 /* NSManagedObjectModel+sharedModel.swift in Sources */,
+				4AD96597293CC0BD0062C605 /* TemplateCoordinator.swift in Sources */,
 				4A7FBBFC293A0DB500FE0751 /* TemplateListViewController.swift in Sources */,
 				4AD96589293CB6E30062C605 /* CVListViewModel.swift in Sources */,
 				4A7FBC57293A237F00FE0751 /* CVRepository.swift in Sources */,
 				4A7FBC30293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift in Sources */,
 				4AD96586293CB64D0062C605 /* CVListViewController.swift in Sources */,
 				4A7FBC54293A234E00FE0751 /* ServiceDependencyContainer.swift in Sources */,
+				4AD96599293CC0C20062C605 /* CVCoordinator.swift in Sources */,
 				4A7FBC3E293A1C6200FE0751 /* TemplateEntity+CoreDataClass.swift in Sources */,
 				4A7FBC36293A181300FE0751 /* TemplateType.swift in Sources */,
 				4A7FBC02293A0DB500FE0751 /* CVDatabase.xcdatamodeld in Sources */,
 				4A7FBC42293A1CB300FE0751 /* CV.swift in Sources */,
+				4AD96594293CC04B0062C605 /* Coordinator.swift in Sources */,
 				4A7FBBF8293A0DB500FE0751 /* AppDelegate.swift in Sources */,
 				4AEB0EC3293A7053005ADCB1 /* TemplateCreationViewController.swift in Sources */,
 				4AD9658D293CB96B0062C605 /* UIViewController+loadFromNib.swift in Sources */,
