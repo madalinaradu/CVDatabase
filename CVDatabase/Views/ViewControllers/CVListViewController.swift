@@ -48,7 +48,7 @@ class CVListViewController: UIViewController {
     
     func configureTableView() {
         tableView.dataSource = self
-//        tableView.register(UINib(nibName: CVTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CVTableViewCell.identifier)
+        tableView.register(UINib(nibName: CVTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CVTableViewCell.identifier)
     }
     
     @objc private func addButtonWasTapped() {
@@ -67,16 +67,16 @@ extension CVListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: CVTableViewCell.identifier, for: indexPath) as? CVTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CVTableViewCell.identifier, for: indexPath) as? CVTableViewCell else {
             return UITableViewCell()
-//        }
+        }
         
-//        guard let cv = viewModel?.getCV(atIndex: indexPath) else {
-//            return UITableViewCell()
-//        }
-//
-//        cell.configureWith(cv)
-//        return cell
+        guard let cv = viewModel?.getCV(atIndex: indexPath) else {
+            return UITableViewCell()
+        }
+        
+        cell.configureWith(cv)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

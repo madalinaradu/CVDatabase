@@ -22,7 +22,8 @@ class CVCoordinator: Coordinator {
 
     func start() {
         let vc = CVListViewController.loadFromNib()
-        let vm = CVListViewModel(dependencyContainer: dependencyContainer)
+        let vm = CVListViewModel(dependencyContainer: dependencyContainer,
+                                 template: template)
         vc.viewModel = vm
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)

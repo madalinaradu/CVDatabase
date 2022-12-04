@@ -9,6 +9,7 @@ import Foundation
 
 protocol CVListViewModelType: AnyObject {
     var cvs: Observable<[UserCV]> { get }
+    var template: Template { get }
     
     func getAllCVs()
     func getCVsCount() -> Int
@@ -24,11 +25,13 @@ class CVListViewModel {
     
     private let dependencyContainer: Dependencies
     let cvs: Observable<[UserCV]> = .init([])
+    let template: Template
     
     // MARK: - Initialisers
     
-    init(dependencyContainer: Dependencies) {
+    init(dependencyContainer: Dependencies, template: Template) {
         self.dependencyContainer = dependencyContainer
+        self.template = template
     }
 }
 
@@ -36,7 +39,7 @@ class CVListViewModel {
 
 extension CVListViewModel: CVListViewModelType {
     func getAllCVs() {
-//        cvs.value = dependencyContainer.templateRepository.fetchAllCVs()
+        cvs.value = dependencyContainer.cvRepository.fetchAllCVs(for: template)
     }
     
     func getCVsCount() -> Int {

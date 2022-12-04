@@ -42,6 +42,16 @@ extension CVEntity {
         }
     }
     
+    static func fetchAll(for template: Template,
+                         context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> [CVEntity] {
+        let templateEntity = template.convertToCoreDataEntity(context: context)
+        guard let cvs = templateEntity.cvs?.allObjects as? [CVEntity] else {
+            return []
+        }
+        
+        return cvs
+    }
+    
     static func deleteAll(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) {
         context.deleteRecords(for: "CVEntity", context: context)
     }

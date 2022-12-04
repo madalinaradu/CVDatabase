@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 protocol CVRepositoryType {
-    func fetchAllCVs() -> [UserCV]
+    func fetchAllCVs(for template: Template) -> [UserCV]
     func saveCV(_ cv: UserCV,
                               context: NSManagedObjectContext,
                               saveContext: Bool)
@@ -19,11 +19,11 @@ protocol CVRepositoryType {
 }
 
 final class CVRepository {
-    func fetchAllCVs() -> [UserCV] {
-        return fetchAllCVsFromDB().map({ $0.convertToDTO() })
+    func fetchAllCVs(for template: Template) -> [UserCV] {
+        return fetchAllCVsFromDB(for: template).map({ $0.convertToDTO() })
     }
     
-    private func fetchAllCVsFromDB() -> [CVEntity] {
+    private func fetchAllCVsFromDB(for template: Template) -> [CVEntity] {
         return CVEntity.fetchAll()
     }
     
