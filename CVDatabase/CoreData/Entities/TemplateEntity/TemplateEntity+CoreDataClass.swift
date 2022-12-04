@@ -30,7 +30,7 @@ extension TemplateEntity {
 }
 
 extension TemplateEntity {
-    static func fetchAll(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> [TemplateEntity] {
+    static func fetchAll(context: NSManagedObjectContext) -> [TemplateEntity] {
         let fetchRequest: NSFetchRequest = TemplateEntity.fetchRequest()
         do {
             let fetchResponse = try context.fetch(fetchRequest)
@@ -42,7 +42,7 @@ extension TemplateEntity {
     }
     
     static func fetchRecord(withIdOf id: NSManagedObjectID,
-                            context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> TemplateEntity? {
+                            context: NSManagedObjectContext) -> TemplateEntity? {
         do {
             guard let entity = try context.existingObject(with: id) as? TemplateEntity else {
                 return nil
@@ -53,12 +53,12 @@ extension TemplateEntity {
         }
     }
     
-    static func deleteAll(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) {
+    static func deleteAll(context: NSManagedObjectContext) {
         context.deleteRecords(for: "TemplateEntity", context: context)
     }
     
     static func deleteEntityWithId(of id: NSManagedObjectID,
-                                   context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> Bool {
+                                   context: NSManagedObjectContext) -> Bool {
         do {
             let entity = try context.existingObject(with: id)
             context.delete(entity)

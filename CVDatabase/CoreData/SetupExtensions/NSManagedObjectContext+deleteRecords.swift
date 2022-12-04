@@ -9,7 +9,7 @@ import CoreData
 
 extension NSManagedObjectContext {
     func deleteRecords(for entityName: String,
-                       context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) {
+                       context: NSManagedObjectContext) {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         

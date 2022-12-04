@@ -19,16 +19,16 @@ protocol TemplateRepositoryType {
 }
 
 final class TemplateRepository {
-    func fetchAllTemplates() -> [Template] {
-        return fetchAllTemplatesFromDB().map({ $0.convertToDTO() })
+    func fetchAllTemplates(context: NSManagedObjectContext) -> [Template] {
+        return fetchAllTemplatesFromDB(context: context).map({ $0.convertToDTO() })
     }
     
-    private func fetchAllTemplatesFromDB() -> [TemplateEntity] {
-        return TemplateEntity.fetchAll()
+    private func fetchAllTemplatesFromDB(context: NSManagedObjectContext) -> [TemplateEntity] {
+        return TemplateEntity.fetchAll(context: context)
     }
     
     func saveTemplate(_ template: Template,
-                              context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext(),
+                              context: NSManagedObjectContext,
                               saveContext: Bool = true) {
         let _ = template.convertToCoreDataEntity(context: context)
         guard saveContext else {
@@ -42,7 +42,7 @@ final class TemplateRepository {
     }
     
     func removeTemplate(_ template: Template,
-                              context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> Bool {
+                              context: NSManagedObjectContext) -> Bool {
         guard let id = template.id else {
             return false
         }

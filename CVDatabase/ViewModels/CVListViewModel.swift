@@ -39,7 +39,8 @@ class CVListViewModel {
 
 extension CVListViewModel: CVListViewModelType {
     func getAllCVs() {
-        cvs.value = dependencyContainer.cvRepository.fetchAllCVs(for: template)
+        let context = CoreDataContainer.shared.newBackgroundContext()
+        cvs.value = dependencyContainer.cvRepository.fetchAllCVs(for: template, context: context)
     }
     
     func getCVsCount() -> Int {

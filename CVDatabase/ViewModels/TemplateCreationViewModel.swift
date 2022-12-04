@@ -71,7 +71,8 @@ extension TemplateCreationViewModel: TemplateCreationViewModelType {
     }
     
     func saveTemplate() {
-        dependencyContainer.templateRepository.saveTemplate(template)
+        let context = CoreDataContainer.shared.newBackgroundContext()
+        dependencyContainer.templateRepository.saveTemplate(template, context: context)
         templateSavingIsComplete.value = true
     }
 }

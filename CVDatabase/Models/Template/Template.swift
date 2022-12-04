@@ -43,7 +43,7 @@ class Template {
 }
 
 extension Template {
-    func convertToCoreDataEntity(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> TemplateEntity {
+    func convertToCoreDataEntity(context: NSManagedObjectContext) -> TemplateEntity {
         let templateEntity = TemplateEntity(context: context)
         templateEntity.hasName = hasName
         templateEntity.hasPhone = hasPhone

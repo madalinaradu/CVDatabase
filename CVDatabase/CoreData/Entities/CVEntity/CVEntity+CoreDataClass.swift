@@ -31,7 +31,7 @@ extension CVEntity {
 }
 
 extension CVEntity {
-//    static func fetchAll(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> [CVEntity] {
+//    static func fetchAll(context: NSManagedObjectContext) -> [CVEntity] {
 //        let fetchRequest: NSFetchRequest = CVEntity.fetchRequest()
 //        do {
 //            let fetchResponse = try context.fetch(fetchRequest)
@@ -43,7 +43,7 @@ extension CVEntity {
 //    }
     
     static func fetchAll(for template: Template,
-                         context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> [CVEntity] {
+                         context: NSManagedObjectContext) -> [CVEntity] {
         let templateEntity = template.convertToCoreDataEntity(context: context)
         guard let cvs = templateEntity.cvs?.allObjects as? [CVEntity] else {
             return []
@@ -52,12 +52,12 @@ extension CVEntity {
         return cvs
     }
     
-    static func deleteAll(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) {
+    static func deleteAll(context: NSManagedObjectContext) {
         context.deleteRecords(for: "CVEntity", context: context)
     }
     
     static func deleteEntityWithId(of id: NSManagedObjectID,
-                                   context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> Bool {
+                                   context: NSManagedObjectContext) -> Bool {
         do {
             let entity = try context.existingObject(with: id)
             context.delete(entity)

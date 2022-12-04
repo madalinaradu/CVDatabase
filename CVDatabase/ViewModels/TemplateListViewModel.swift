@@ -36,7 +36,8 @@ class TemplateListViewModel {
 
 extension TemplateListViewModel: TemplateListViewModelType {
     func getAllTemplates() {
-        templates.value = dependencyContainer.templateRepository.fetchAllTemplates()
+        let context = CoreDataContainer.shared.newBackgroundContext()
+        templates.value = dependencyContainer.templateRepository.fetchAllTemplates(context: context)
     }
     
     func getTemplatesCount() -> Int {
@@ -52,7 +53,8 @@ extension TemplateListViewModel: TemplateListViewModelType {
     }
     
     func removeTemplate(atIndex index: IndexPath) {
-        let templateWasRemoved = dependencyContainer.templateRepository.removeTemplate(templates.value[index.row])
+        let context = CoreDataContainer.shared.newBackgroundContext()
+        let templateWasRemoved = dependencyContainer.templateRepository.removeTemplate(templates.value[index.row], context: context)
         guard templateWasRemoved else {
             print("The deletion failed")
             return

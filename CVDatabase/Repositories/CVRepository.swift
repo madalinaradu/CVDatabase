@@ -19,16 +19,16 @@ protocol CVRepositoryType {
 }
 
 final class CVRepository {
-    func fetchAllCVs(for template: Template) -> [UserCV] {
-        return fetchAllCVsFromDB(for: template).map({ $0.convertToDTO() })
+    func fetchAllCVs(for template: Template, context: NSManagedObjectContext) -> [UserCV] {
+        return fetchAllCVsFromDB(for: template, context: context).map({ $0.convertToDTO() })
     }
     
-    private func fetchAllCVsFromDB(for template: Template, context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> [CVEntity] {
+    private func fetchAllCVsFromDB(for template: Template, context: NSManagedObjectContext) -> [CVEntity] {
         return CVEntity.fetchAll(for: template, context: context)
     }
     
     func saveCV(_ cv: UserCV,
-                              context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext(),
+                              context: NSManagedObjectContext,
                               saveContext: Bool = true) {
         let _ = cv.convertToCoreDataEntity(context: context)
         guard saveContext else {
@@ -42,7 +42,7 @@ final class CVRepository {
     }
     
     func removeCV(_ cv: UserCV,
-                              context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> Bool {
+                              context: NSManagedObjectContext) -> Bool {
         guard let id = cv.id else {
             return false
         }
