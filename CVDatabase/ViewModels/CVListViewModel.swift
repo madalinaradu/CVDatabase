@@ -34,7 +34,7 @@ class CVListViewModel {
 
 extension CVListViewModel: CVListViewModelType {
     func getAllCVs() {
-//        cvs.value = dependencyContainer.cvRepository.fetchAllCVs()
+//        cvs.value = dependencyContainer.templateRepository.fetchAllCVs()
     }
     
     func getCVsCount() -> Int {
@@ -50,7 +50,7 @@ extension CVListViewModel: CVListViewModelType {
     }
     
     func removeCV(atIndex index: IndexPath) {
-//        let templateWasRemoved = dependencyContainer.cvRepository.removeCV(cvs.value[index.row])
+//        let templateWasRemoved = dependencyContainer.templateRepository.removeCV(cvs.value[index.row])
 //        guard templateWasRemoved else {
 //            print("The deletion failed")
 //            return

@@ -29,7 +29,7 @@
 		4A7FBC4B293A214F00FE0751 /* CVEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC4A293A214F00FE0751 /* CVEntity+CoreDataProperties.swift */; };
 		4A7FBC51293A229200FE0751 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC50293A229200FE0751 /* Observable.swift */; };
 		4A7FBC54293A234E00FE0751 /* ServiceDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC53293A234E00FE0751 /* ServiceDependencyContainer.swift */; };
-		4A7FBC57293A237F00FE0751 /* CVRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC56293A237F00FE0751 /* CVRepository.swift */; };
+		4A7FBC57293A237F00FE0751 /* TemplateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC56293A237F00FE0751 /* TemplateRepository.swift */; };
 		4A7FBC59293A2BC000FE0751 /* TemplateListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC58293A2BBF00FE0751 /* TemplateListViewModel.swift */; };
 		4A7FBC61293A346400FE0751 /* TemplateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC5F293A346400FE0751 /* TemplateTableViewCell.swift */; };
 		4A7FBC62293A346400FE0751 /* TemplateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FBC60293A346400FE0751 /* TemplateTableViewCell.xib */; };
@@ -95,7 +95,7 @@
 		4A7FBC4A293A214F00FE0751 /* CVEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4A7FBC50293A229200FE0751 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		4A7FBC53293A234E00FE0751 /* ServiceDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDependencyContainer.swift; sourceTree = "<group>"; };
-		4A7FBC56293A237F00FE0751 /* CVRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVRepository.swift; sourceTree = "<group>"; };
+		4A7FBC56293A237F00FE0751 /* TemplateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateRepository.swift; sourceTree = "<group>"; };
 		4A7FBC58293A2BBF00FE0751 /* TemplateListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateListViewModel.swift; sourceTree = "<group>"; };
 		4A7FBC5F293A346400FE0751 /* TemplateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTableViewCell.swift; sourceTree = "<group>"; };
 		4A7FBC60293A346400FE0751 /* TemplateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateTableViewCell.xib; sourceTree = "<group>"; };
@@ -324,7 +324,7 @@
 		4A7FBC55293A236700FE0751 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				4A7FBC56293A237F00FE0751 /* CVRepository.swift */,
+				4A7FBC56293A237F00FE0751 /* TemplateRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -552,7 +552,7 @@
 				4AD96597293CC0BD0062C605 /* TemplateCoordinator.swift in Sources */,
 				4A7FBBFC293A0DB500FE0751 /* TemplateListViewController.swift in Sources */,
 				4AD96589293CB6E30062C605 /* CVListViewModel.swift in Sources */,
-				4A7FBC57293A237F00FE0751 /* CVRepository.swift in Sources */,
+				4A7FBC57293A237F00FE0751 /* TemplateRepository.swift in Sources */,
 				4A7FBC30293A119900FE0751 /* NSManagedObjectContext+saveIfNeeded.swift in Sources */,
 				4AD96586293CB64D0062C605 /* CVListViewController.swift in Sources */,
 				4A7FBC54293A234E00FE0751 /* ServiceDependencyContainer.swift in Sources */,

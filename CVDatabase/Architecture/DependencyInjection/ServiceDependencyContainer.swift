@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol ServiceDependencyProvider: CVRepositoryProvider { }
+protocol ServiceDependencyProvider: TemplateRepositoryProvider { }
 
 final class ServiceDependencyContainer: ServiceDependencyProvider {
-    var cvRepository: CVRepository = CVRepository()
+    var templateRepository: TemplateRepository = TemplateRepository()
 }
 
-protocol CVRepositoryProvider {
-    var cvRepository: CVRepository { get }
+protocol TemplateRepositoryProvider {
+    var templateRepository: TemplateRepository { get }
 }

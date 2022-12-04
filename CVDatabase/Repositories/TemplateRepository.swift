@@ -1,5 +1,5 @@
 //
-//  CVRepository.swift
+//  TemplateRepository.swift
 //  CVDatabase
 //
 //  Created by Alexandra Radu on 02.12.2022.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-protocol CVRepositoryType {
+protocol TemplateRepositoryType {
     func fetchAllTemplates() -> [Template]
     func saveTemplate(_ template: Template,
                               context: NSManagedObjectContext,
@@ -18,7 +18,7 @@ protocol CVRepositoryType {
                         saveContext: Bool) -> Bool
 }
 
-final class CVRepository {
+final class TemplateRepository {
     func fetchAllTemplates() -> [Template] {
         return fetchAllTemplatesFromDB().map({ $0.convertToDTO() })
     }

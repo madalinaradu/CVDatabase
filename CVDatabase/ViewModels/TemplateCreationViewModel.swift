@@ -69,7 +69,7 @@ extension TemplateCreationViewModel: TemplateCreationViewModelType {
     }
     
     func saveTemplate() {
-        dependencyContainer.cvRepository.saveTemplate(template)
+        dependencyContainer.templateRepository.saveTemplate(template)
         templateSavingIsComplete.value = true
     }
 }
