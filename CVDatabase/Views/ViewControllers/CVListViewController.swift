@@ -23,6 +23,7 @@ class CVListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavigationItems()
         configureTableView()
         viewModel?.getAllCVs()
         bindViewModel()
@@ -30,16 +31,28 @@ class CVListViewController: UIViewController {
     
     // MARK: - Instance functions
     
-    func bindViewModel() {
+    private func bindViewModel() {
         viewModel?.cvs.bind { _ in
             print("CVS were updated")
             self.tableView.reloadData()
         }
     }
     
+    private func configureNavigationItems() {
+        let addTemplateBarButtonItem = UIBarButtonItem(title: "+",
+                                                       style: .plain,
+                                                       target: self,
+                                                       action: #selector(addButtonWasTapped))
+        self.navigationItem.rightBarButtonItem  = addTemplateBarButtonItem
+    }
+    
     func configureTableView() {
         tableView.dataSource = self
 //        tableView.register(UINib(nibName: CVTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CVTableViewCell.identifier)
+    }
+    
+    @objc private func addButtonWasTapped() {
+        coordinator?.openCVCreation(from: self)
     }
 }
 

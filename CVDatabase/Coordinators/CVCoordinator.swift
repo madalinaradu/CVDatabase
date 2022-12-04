@@ -24,4 +24,13 @@ class CVCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func openCVCreation(from cvListViewController: CVCreationDelegate) {
+//        let vc = CVCreationViewController.loadFromNib()
+//        let viewModel = CVCreationViewModel(dependencyContainer: dependencyContainer)
+//        vc.viewModel = viewModel
+//        vc.coordinator = self
+//        vc.delegate = cvListViewController
+//        navigationController.pushViewController(vc, animated: true)
+    }
 }
