@@ -8,7 +8,6 @@
 import UIKit
 
 class TemplateCoordinator: Coordinator {
-    var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var dependencyContainer: ServiceDependencyContainer
 
@@ -33,5 +32,11 @@ class TemplateCoordinator: Coordinator {
         vc.coordinator = self
         vc.delegate = templateListViewController
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func openCVChildCoordinator() {
+        let coordinator = CVCoordinator(navigationController: navigationController,
+                                        dependencyContainer: dependencyContainer)
+        coordinator.start()
     }
 }

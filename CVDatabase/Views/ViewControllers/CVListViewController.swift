@@ -16,7 +16,7 @@ class CVListViewController: UIViewController {
     // MARK: - Parameters
     
     var viewModel: CVListViewModelType?
-//    weak var coordinator: CVCoordinator?
+    weak var coordinator: CVCoordinator?
     static let xibName = "CVListViewController"
     static let identifier = "CVListViewController"
 

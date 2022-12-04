@@ -91,10 +91,7 @@ extension TemplateListViewController: UITableViewDataSource {
 
 extension TemplateListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = CVListViewController.loadFromNib()
-        let viewModel = CVListViewModel(dependencyContainer: dependencyContainer)
-        vc.viewModel = viewModel
-        navigationController?.pushViewController(vc, animated: true)
+        coordinator?.openCVChildCoordinator()
     }
 }
 
