@@ -10,11 +10,14 @@ import UIKit
 class CVCoordinator: Coordinator {
     var navigationController: UINavigationController
     var dependencyContainer: ServiceDependencyContainer
+    let template: Template
 
     init(navigationController: UINavigationController,
-         dependencyContainer: ServiceDependencyContainer) {
+         dependencyContainer: ServiceDependencyContainer,
+         template: Template) {
         self.navigationController = navigationController
         self.dependencyContainer = dependencyContainer
+        self.template = template
     }
 
     func start() {
@@ -25,12 +28,13 @@ class CVCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func openCVCreation(from cvListViewController: CVCreationDelegate) {
-//        let vc = CVCreationViewController.loadFromNib()
-//        let viewModel = CVCreationViewModel(dependencyContainer: dependencyContainer)
-//        vc.viewModel = viewModel
-//        vc.coordinator = self
-//        vc.delegate = cvListViewController
-//        navigationController.pushViewController(vc, animated: true)
+    func openCVCreation(from cvListViewController: CVCreationDelegate, template: Template) {
+        let vc = CVCreationViewController.loadFromNib()
+        let viewModel = CVCreationViewModel(dependencyContainer: dependencyContainer,
+                                            template: template)
+        vc.viewModel = viewModel
+        vc.coordinator = self
+        vc.delegate = cvListViewController
+        navigationController.pushViewController(vc, animated: true)
     }
 }

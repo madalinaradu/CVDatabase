@@ -16,7 +16,7 @@ class CVListViewController: UIViewController {
     // MARK: - Parameters
     
     var viewModel: CVListViewModelType?
-    weak var coordinator: CVCoordinator?
+    var coordinator: CVCoordinator?
 
     // MARK: - View Lifecycle
     
@@ -52,7 +52,10 @@ class CVListViewController: UIViewController {
     }
     
     @objc private func addButtonWasTapped() {
-        coordinator?.openCVCreation(from: self)
+        guard let template = coordinator?.template else {
+            return
+        }
+        coordinator?.openCVCreation(from: self, template: template)
     }
 }
 

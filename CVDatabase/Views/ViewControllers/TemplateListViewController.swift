@@ -90,7 +90,11 @@ extension TemplateListViewController: UITableViewDataSource {
 
 extension TemplateListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.openCVChildCoordinator()
+        guard let templates = viewModel?.templates.value,
+              templates.count > indexPath.row else {
+            return
+        }
+        coordinator?.openCVChildCoordinator(fromTemplate: templates[indexPath.row])
     }
 }
 

@@ -34,9 +34,10 @@ class TemplateCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func openCVChildCoordinator() {
+    func openCVChildCoordinator(fromTemplate template : Template) {
         let coordinator = CVCoordinator(navigationController: navigationController,
-                                        dependencyContainer: dependencyContainer)
+                                        dependencyContainer: dependencyContainer,
+                                        template: template)
         coordinator.start()
     }
 }
