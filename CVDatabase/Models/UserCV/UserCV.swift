@@ -1,5 +1,5 @@
 //
-//  CV.swift
+//  UserCV.swift
 //  CVDatabase
 //
 //  Created by Alexandra Radu on 02.12.2022.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CV {
+class UserCV {
     var id: NSManagedObjectID?
     var template: Template
     var name: String?
@@ -45,7 +45,7 @@ class CV {
     }
 }
 
-extension CV {
+extension UserCV {
     func convertToCoreDataEntity(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> CVEntity {
         let cvEntity = CVEntity(context: context)
         cvEntity.name = self.name

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CVCreationViewModelType: AnyObject {
-    var cv: CV { get }
+    var cv: UserCV { get }
     var template: Template { get }
     var cvSavingIsComplete: Observable<Bool> { get }
 
@@ -26,8 +26,8 @@ class CVCreationViewModel {
 
     private let dependencyContainer: Dependencies
 
-    lazy var cv: CV = {
-        return CV(id: nil,
+    lazy var cv: UserCV = {
+        return UserCV(id: nil,
                   template: template,
                   name: nil,
                   phone: nil,

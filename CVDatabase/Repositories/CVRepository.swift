@@ -9,17 +9,17 @@ import Foundation
 import CoreData
 
 protocol CVRepositoryType {
-    func fetchAllCVs() -> [CV]
-    func saveCV(_ cv: CV,
+    func fetchAllCVs() -> [UserCV]
+    func saveCV(_ cv: UserCV,
                               context: NSManagedObjectContext,
                               saveContext: Bool)
-    func removeCV(_ cv: CV,
+    func removeCV(_ cv: UserCV,
                         context: NSManagedObjectContext,
                         saveContext: Bool) -> Bool
 }
 
 final class CVRepository {
-    func fetchAllCVs() -> [CV] {
+    func fetchAllCVs() -> [UserCV] {
         return fetchAllCVsFromDB().map({ $0.convertToDTO() })
     }
     
@@ -27,7 +27,7 @@ final class CVRepository {
         return CVEntity.fetchAll()
     }
     
-    func saveCV(_ cv: CV,
+    func saveCV(_ cv: UserCV,
                               context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext(),
                               saveContext: Bool = true) {
         let _ = cv.convertToCoreDataEntity(context: context)
@@ -41,7 +41,7 @@ final class CVRepository {
         }
     }
     
-    func removeCV(_ cv: CV,
+    func removeCV(_ cv: UserCV,
                               context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> Bool {
         guard let id = cv.id else {
             return false

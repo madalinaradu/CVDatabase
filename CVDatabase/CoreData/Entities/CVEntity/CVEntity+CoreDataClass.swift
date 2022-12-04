@@ -16,8 +16,8 @@ public class CVEntity: NSManagedObject {
 
 extension CVEntity {
     // convert to a Data Transfer Object
-    func convertToDTO() -> CV {
-        return CV(id: objectID,
+    func convertToDTO() -> UserCV {
+        return UserCV(id: objectID,
                   template: template.convertToDTO(),
                   name: name,
                   phone: phone,

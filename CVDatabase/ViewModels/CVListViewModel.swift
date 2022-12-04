@@ -8,11 +8,11 @@
 import Foundation
 
 protocol CVListViewModelType: AnyObject {
-    var cvs: Observable<[CV]> { get }
+    var cvs: Observable<[UserCV]> { get }
     
     func getAllCVs()
     func getCVsCount() -> Int
-    func getCV(atIndex: IndexPath) -> CV?
+    func getCV(atIndex: IndexPath) -> UserCV?
     func removeCV(atIndex: IndexPath)
 }
 
@@ -23,7 +23,7 @@ class CVListViewModel {
     // MARK: - Parameters
     
     private let dependencyContainer: Dependencies
-    let cvs: Observable<[CV]> = .init([])
+    let cvs: Observable<[UserCV]> = .init([])
     
     // MARK: - Initialisers
     
@@ -43,7 +43,7 @@ extension CVListViewModel: CVListViewModelType {
         return cvs.value.count
     }
     
-    func getCV(atIndex index: IndexPath) -> CV? {
+    func getCV(atIndex index: IndexPath) -> UserCV? {
         guard index.row < getCVsCount() else {
             return nil
         }
