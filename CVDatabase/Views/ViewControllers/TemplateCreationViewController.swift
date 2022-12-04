@@ -12,14 +12,11 @@ class TemplateCreationViewController: UIViewController {
     // MARK: - IBOutlets
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var saveButton: UIButton!
     
     // MARK: - Parameters
     
     var viewModel: TemplateCreationViewModelType?
     var delegate: TemplateCreationDelegate?
-    static let storyboardName = "TemplateCreation"
-    static let identifier = "TemplateCreationViewController"
     
     // MARK: - View Lifecycle
     

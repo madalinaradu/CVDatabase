@@ -19,8 +19,6 @@ class TemplateListViewController: UIViewController {
     lazy var viewModel: TemplateListViewModelType? = {
         return TemplateListViewModel(dependencyContainer: dependencyContainer)
     }()
-    static let storyboardName = "Main"
-    static let identifier = "TemplateListViewController"
 
     // MARK: - View Lifecycle
     
@@ -35,14 +33,11 @@ class TemplateListViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBAction func addButtonWasTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: TemplateCreationViewController.storyboardName, bundle: nil)
-        guard let controller = storyboard.instantiateViewController(withIdentifier: TemplateCreationViewController.identifier) as? TemplateCreationViewController else {
-            return
-        }
+        let vc = TemplateCreationViewController.loadFromNib()
         let viewModel = TemplateCreationViewModel(dependencyContainer: dependencyContainer)
-        controller.viewModel = viewModel
-        controller.delegate = self
-        navigationController?.pushViewController(controller, animated: true)
+        vc.viewModel = viewModel
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Instance functions
