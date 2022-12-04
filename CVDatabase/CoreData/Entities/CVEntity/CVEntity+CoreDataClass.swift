@@ -31,16 +31,16 @@ extension CVEntity {
 }
 
 extension CVEntity {
-    static func fetchAll(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> [CVEntity] {
-        let fetchRequest: NSFetchRequest = CVEntity.fetchRequest()
-        do {
-            let fetchResponse = try context.fetch(fetchRequest)
-            return fetchResponse
-        } catch {
-            print("Fetch failed")
-            return []
-        }
-    }
+//    static func fetchAll(context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> [CVEntity] {
+//        let fetchRequest: NSFetchRequest = CVEntity.fetchRequest()
+//        do {
+//            let fetchResponse = try context.fetch(fetchRequest)
+//            return fetchResponse
+//        } catch {
+//            print("Fetch failed")
+//            return []
+//        }
+//    }
     
     static func fetchAll(for template: Template,
                          context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> [CVEntity] {

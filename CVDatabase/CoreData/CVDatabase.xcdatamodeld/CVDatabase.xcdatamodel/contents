@@ -20,10 +20,10 @@
         <attribute name="hasPhone" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="hasSkills" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="hasStudies" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
-        <relationship name="cvs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CVEntity" inverseName="template" inverseEntity="CVEntity"/>
+        <relationship name="cvs" toMany="YES" deletionRule="Cascade" destinationEntity="CVEntity" inverseName="template" inverseEntity="CVEntity"/>
     </entity>
     <elements>
-        <element name="TemplateEntity" positionX="-63" positionY="-18" width="128" height="164"/>
         <element name="CVEntity" positionX="-54" positionY="54" width="128" height="164"/>
+        <element name="TemplateEntity" positionX="-63" positionY="-18" width="128" height="164"/>
     </elements>
 </model>

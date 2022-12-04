@@ -23,8 +23,8 @@ final class CVRepository {
         return fetchAllCVsFromDB(for: template).map({ $0.convertToDTO() })
     }
     
-    private func fetchAllCVsFromDB(for template: Template) -> [CVEntity] {
-        return CVEntity.fetchAll()
+    private func fetchAllCVsFromDB(for template: Template, context: NSManagedObjectContext = CoreDataContainer.shared.newBackgroundContext()) -> [CVEntity] {
+        return CVEntity.fetchAll(for: template, context: context)
     }
     
     func saveCV(_ cv: UserCV,
