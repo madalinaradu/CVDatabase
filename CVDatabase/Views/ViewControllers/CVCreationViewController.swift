@@ -49,7 +49,9 @@ class CVCreationViewController: UIViewController {
     
     func configureTableView() {
         tableView.dataSource = self
-//        tableView.register(UINib(nibName: CVTypeTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CVTypeTableViewCell.identifier)
+        tableView.delegate = self
+        tableView.register(UINib(nibName: SmallCVCreationTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: SmallCVCreationTableViewCell.identifier)
+        tableView.register(UINib(nibName: BigCVCreationTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: BigCVCreationTableViewCell.identifier)
     }
 }
 
@@ -61,15 +63,45 @@ extension CVCreationViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: CVTypeTableViewCell.identifier, for: indexPath) as? CVTypeTableViewCell else {
+        typealias TemplateCompletion = (templateType: TemplateType, isSelectable: Bool)
+        guard let templateCompletion: TemplateCompletion = viewModel?.getTemplateType(atIndex: indexPath),
+              templateCompletion.isSelectable,
+              let cv = viewModel?.cv else {
             return UITableViewCell()
-//        }
+        }
         
-//        guard let (templateType, isSelected) = viewModel?.getCVTypeAndSelection(atIndex: indexPath) else {
-//            return UITableViewCell()
-//        }
+        switch templateCompletion.templateType.fieldType {
+        case .smallTextInput:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SmallCVCreationTableViewCell.identifier, for: indexPath) as? SmallCVCreationTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configureWith(cv, templateType: templateCompletion.templateType)
+            return cell
+        case .bigTextInput:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BigCVCreationTableViewCell.identifier, for: indexPath) as? BigCVCreationTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configureWith(cv, templateType: templateCompletion.templateType)
+            return cell
+        }
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension CVCreationViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        typealias TemplateCompletion = (templateType: TemplateType, isSelectable: Bool)
+        guard let templateCompletion: TemplateCompletion = viewModel?.getTemplateType(atIndex: indexPath),
+              templateCompletion.isSelectable else {
+            return 0
+        }
         
-//        cell.configureWith(templateType, isSelected: isSelected)
-//        return cell
+        switch templateCompletion.templateType.fieldType {
+        case .smallTextInput:
+            return 100
+        case .bigTextInput:
+            return 300
+        }
     }
 }

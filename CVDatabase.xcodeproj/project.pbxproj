@@ -48,6 +48,10 @@
 		4AD9659D293CFFB60062C605 /* CVCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9659C293CFFB60062C605 /* CVCreationViewModel.swift */; };
 		4AD965A0293D09780062C605 /* CVCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9659E293D09780062C605 /* CVCreationViewController.swift */; };
 		4AD965A1293D09780062C605 /* CVCreationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD9659F293D09780062C605 /* CVCreationViewController.xib */; };
+		4AD965A6293D15520062C605 /* SmallCVCreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD965A4293D15520062C605 /* SmallCVCreationTableViewCell.swift */; };
+		4AD965A7293D15520062C605 /* SmallCVCreationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD965A5293D15520062C605 /* SmallCVCreationTableViewCell.xib */; };
+		4AD965AA293D15650062C605 /* BigCVCreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD965A8293D15650062C605 /* BigCVCreationTableViewCell.swift */; };
+		4AD965AB293D15650062C605 /* BigCVCreationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD965A9293D15650062C605 /* BigCVCreationTableViewCell.xib */; };
 		4AEB0EC3293A7053005ADCB1 /* TemplateCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0EC2293A7053005ADCB1 /* TemplateCreationViewController.swift */; };
 		4AEB0EC8293A72C5005ADCB1 /* TemplateCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0EC7293A72C5005ADCB1 /* TemplateCreationViewModel.swift */; };
 		4AEB0ECD293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB0ECB293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift */; };
@@ -118,6 +122,10 @@
 		4AD9659C293CFFB60062C605 /* CVCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCreationViewModel.swift; sourceTree = "<group>"; };
 		4AD9659E293D09780062C605 /* CVCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCreationViewController.swift; sourceTree = "<group>"; };
 		4AD9659F293D09780062C605 /* CVCreationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CVCreationViewController.xib; sourceTree = "<group>"; };
+		4AD965A4293D15520062C605 /* SmallCVCreationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCVCreationTableViewCell.swift; sourceTree = "<group>"; };
+		4AD965A5293D15520062C605 /* SmallCVCreationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallCVCreationTableViewCell.xib; sourceTree = "<group>"; };
+		4AD965A8293D15650062C605 /* BigCVCreationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCVCreationTableViewCell.swift; sourceTree = "<group>"; };
+		4AD965A9293D15650062C605 /* BigCVCreationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BigCVCreationTableViewCell.xib; sourceTree = "<group>"; };
 		4AEB0EC2293A7053005ADCB1 /* TemplateCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCreationViewController.swift; sourceTree = "<group>"; };
 		4AEB0EC7293A72C5005ADCB1 /* TemplateCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCreationViewModel.swift; sourceTree = "<group>"; };
 		4AEB0ECB293A7BD6005ADCB1 /* TemplateTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTypeTableViewCell.swift; sourceTree = "<group>"; };
@@ -344,6 +352,8 @@
 			children = (
 				4AEB0ECA293A7B28005ADCB1 /* TemplateTypeTableViewCell */,
 				4AEB0EC9293A7B1B005ADCB1 /* TemplateTableViewCell */,
+				4AD965A2293D14F60062C605 /* SmallCVCreationTableViewCell */,
+				4AD965A3293D15230062C605 /* BigCVCreationTableViewCell */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -385,6 +395,24 @@
 				4AD96598293CC0C20062C605 /* CVCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		4AD965A2293D14F60062C605 /* SmallCVCreationTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4AD965A4293D15520062C605 /* SmallCVCreationTableViewCell.swift */,
+				4AD965A5293D15520062C605 /* SmallCVCreationTableViewCell.xib */,
+			);
+			path = SmallCVCreationTableViewCell;
+			sourceTree = "<group>";
+		};
+		4AD965A3293D15230062C605 /* BigCVCreationTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4AD965A8293D15650062C605 /* BigCVCreationTableViewCell.swift */,
+				4AD965A9293D15650062C605 /* BigCVCreationTableViewCell.xib */,
+			);
+			path = BigCVCreationTableViewCell;
 			sourceTree = "<group>";
 		};
 		4AEB0EC4293A7193005ADCB1 /* Extensions */ = {
@@ -528,9 +556,11 @@
 			files = (
 				4A7FBC07293A0DB500FE0751 /* LaunchScreen.storyboard in Resources */,
 				4AEB0ECE293A7BD6005ADCB1 /* TemplateTypeTableViewCell.xib in Resources */,
+				4AD965A7293D15520062C605 /* SmallCVCreationTableViewCell.xib in Resources */,
 				4AD965A1293D09780062C605 /* CVCreationViewController.xib in Resources */,
 				4A7FBC62293A346400FE0751 /* TemplateTableViewCell.xib in Resources */,
 				4A7FBC04293A0DB500FE0751 /* Assets.xcassets in Resources */,
+				4AD965AB293D15650062C605 /* BigCVCreationTableViewCell.xib in Resources */,
 				4AD96587293CB64D0062C605 /* CVListViewController.xib in Resources */,
 				4AD96591293CBE080062C605 /* TemplateListViewController.xib in Resources */,
 				4AD9658F293CBA810062C605 /* TemplateCreationViewController.xib in Resources */,
@@ -574,9 +604,11 @@
 				4A7FBC36293A181300FE0751 /* TemplateType.swift in Sources */,
 				4A7FBC02293A0DB500FE0751 /* CVDatabase.xcdatamodeld in Sources */,
 				4A7FBC42293A1CB300FE0751 /* UserCV.swift in Sources */,
+				4AD965AA293D15650062C605 /* BigCVCreationTableViewCell.swift in Sources */,
 				4AD9659D293CFFB60062C605 /* CVCreationViewModel.swift in Sources */,
 				4AD9659B293CD0A10062C605 /* CVRepository.swift in Sources */,
 				4AD96594293CC04B0062C605 /* Coordinator.swift in Sources */,
+				4AD965A6293D15520062C605 /* SmallCVCreationTableViewCell.swift in Sources */,
 				4A7FBBF8293A0DB500FE0751 /* AppDelegate.swift in Sources */,
 				4AEB0EC3293A7053005ADCB1 /* TemplateCreationViewController.swift in Sources */,
 				4AD9658D293CB96B0062C605 /* UIViewController+loadFromNib.swift in Sources */,
