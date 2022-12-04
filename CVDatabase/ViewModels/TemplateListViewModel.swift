@@ -1,5 +1,5 @@
 //
-//  TemplatesViewModel.swift
+//  TemplateListViewModel.swift
 //  CVDatabase
 //
 //  Created by Alexandra Radu on 02.12.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TemplatesViewModelType: AnyObject {
+protocol TemplateListViewModelType: AnyObject {
     var templates: Observable<[Template]> { get }
     
     func getAllTemplates()
@@ -16,7 +16,7 @@ protocol TemplatesViewModelType: AnyObject {
     func removeTemplate(atIndex: IndexPath)
 }
 
-class TemplatesViewModel {
+class TemplateListViewModel {
     
     // MARK: - Parameters
     
@@ -34,7 +34,7 @@ class TemplatesViewModel {
 
 // MARK: - TemplatesViewModelType
 
-extension TemplatesViewModel: TemplatesViewModelType {
+extension TemplateListViewModel: TemplateListViewModelType {
     func getAllTemplates() {
         templates.value = dependencyContainer.cvRepository.fetchAllTemplates()
     }

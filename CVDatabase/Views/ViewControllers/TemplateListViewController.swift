@@ -1,5 +1,5 @@
 //
-//  TemplatesViewController.swift
+//  TemplateListViewController.swift
 //  CVDatabase
 //
 //  Created by Alexandra Radu on 02.12.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TemplatesViewController: UIViewController {
+class TemplateListViewController: UIViewController {
     
     // MARK: - IBOutlets
     
@@ -16,11 +16,11 @@ class TemplatesViewController: UIViewController {
     // MARK: - Parameters
     
     let dependencyContainer: ServiceDependencyProvider = ServiceDependencyContainer()
-    lazy var viewModel: TemplatesViewModelType? = {
-        return TemplatesViewModel(dependencyContainer: dependencyContainer)
+    lazy var viewModel: TemplateListViewModelType? = {
+        return TemplateListViewModel(dependencyContainer: dependencyContainer)
     }()
     static let storyboardName = "Main"
-    static let identifier = "TemplatesViewController"
+    static let identifier = "TemplateListViewController"
 
     // MARK: - View Lifecycle
     
@@ -55,6 +55,7 @@ class TemplatesViewController: UIViewController {
     }
     
     func configureTableView() {
+        tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: TemplateTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TemplateTableViewCell.identifier)
     }
@@ -62,7 +63,7 @@ class TemplatesViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 
-extension TemplatesViewController: UITableViewDataSource {
+extension TemplateListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.getTemplatesCount() ?? 0
     }
@@ -89,9 +90,20 @@ extension TemplatesViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+
+extension TemplateListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = CVListViewController.loadFromNib()
+        let viewModel = CVListViewModel(dependencyContainer: dependencyContainer)
+        vc.viewModel = viewModel
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
 // MARK: - TemplateCreationDelegate
 
-extension TemplatesViewController: TemplateCreationDelegate {
+extension TemplateListViewController: TemplateCreationDelegate {
     func templateWasCreated() {
         viewModel?.getAllTemplates()
     }
