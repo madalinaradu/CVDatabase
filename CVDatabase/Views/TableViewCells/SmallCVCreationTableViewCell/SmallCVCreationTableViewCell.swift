@@ -33,26 +33,25 @@ class SmallCVCreationTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    // MARK: - IBActions
+    
+    @IBAction func editingDidChange(_ sender: Any) {
+        guard let templateType = templateType else {
+            return
+        }
+        
+        delegate?.fieldUpdated(withText: detailsTextField.text ?? "", for: templateType)
+    }
+    
     // MARK: - Instance functions
     
     func configureWith(_ cv: UserCV, templateType: TemplateType) {
         typeLabel.text = templateType.name
         detailsTextField.text = cv.getValueForType(templateType)
-        detailsTextField.delegate = self
         self.templateType = templateType
         
         if templateType == .phone {
             detailsTextField.keyboardType = .phonePad
         }
-    }
-}
-
-extension SmallCVCreationTableViewCell: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let templateType = templateType else {
-            return
-        }
-        
-        delegate?.fieldUpdated(withText: textField.text ?? "", for: templateType)
     }
 }

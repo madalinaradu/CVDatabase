@@ -38,13 +38,16 @@ class BigCVCreationTableViewCell: UITableViewCell {
     func configureWith(_ cv: UserCV, templateType: TemplateType) {
         typeLabel.text = templateType.name
         detailsTextView.text = cv.getValueForType(templateType)
+        detailsTextView.delegate = self
         self.templateType = templateType
     }
     
 }
 
-extension SmallCVCreationTableViewCell: UITextViewDelegate {
-    func textViewDidEndEditing(_ textView: UITextView) {
+// MARK: - UITextViewDelegate
+
+extension BigCVCreationTableViewCell: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
         guard let templateType = templateType else {
             return
         }

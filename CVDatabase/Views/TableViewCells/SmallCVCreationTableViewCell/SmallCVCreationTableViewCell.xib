@@ -26,6 +26,9 @@
                         <rect key="frame" x="8" y="34" width="304" height="82"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="editingDidChange:" destination="KGk-i7-Jjw" eventType="editingChanged" id="dTC-Dl-k9d"/>
+                        </connections>
                     </textField>
                 </subviews>
                 <constraints>
