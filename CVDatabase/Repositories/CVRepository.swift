@@ -27,7 +27,7 @@ final class CVRepository {
         return CVEntity.fetchAll(for: template, context: context)
     }
     
-    func saveCV(_ cv: UserCV,
+    func save(_ cv: UserCV,
                 context: NSManagedObjectContext,
                 saveContext: Bool = true) {
         let _ = cv.convertToCoreDataEntity(context: context)
@@ -38,6 +38,35 @@ final class CVRepository {
             try context.saveIfNeeded()
         } catch {
             print("Save failed")
+        }
+    }
+    
+    func update(_ cv: UserCV,
+                context: NSManagedObjectContext,
+                saveContext: Bool = true) {
+        
+        guard let id = cv.id else {
+            save(cv, context: context)
+            return
+        }
+        
+        do {
+            let cvEntity = try context.existingObject(with: id) as? CVEntity
+            cvEntity?.name = cv.name
+            cvEntity?.phone = cv.phone
+            cvEntity?.email = cv.email
+            if let age = cv.age {
+                cvEntity?.age = Int16(age)
+            }
+            cvEntity?.studies = cv.studies
+            cvEntity?.experience = cv.experience
+            cvEntity?.skills = cv.skills
+            cvEntity?.personalProjects = cv.personalProjects
+            
+            try context.saveIfNeeded()
+        } catch {
+            print("Edit failed, trying to save instead.")
+            save(cv, context: context)
         }
     }
     

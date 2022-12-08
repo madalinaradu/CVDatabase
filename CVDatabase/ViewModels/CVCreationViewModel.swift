@@ -101,7 +101,11 @@ extension CVCreationViewModel: CVCreationViewModelType {
 
     func saveCV() {
         let context = CoreDataContainer.shared.newBackgroundContext()
-        dependencyContainer.cvRepository.saveCV(cv, context: context)
+        if cv.id != nil {
+            dependencyContainer.cvRepository.update(cv, context: context)
+        } else {
+            dependencyContainer.cvRepository.save(cv, context: context)
+        }
         cvSavingIsComplete.value = true
     }
 }
