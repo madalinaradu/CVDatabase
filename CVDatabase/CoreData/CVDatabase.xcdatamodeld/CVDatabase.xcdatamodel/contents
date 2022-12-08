@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CVEntity" representedClassName=".CVEntity" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="experience" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="personalProjects" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="skills" optional="YES" attributeType="String"/>
+        <attribute name="studies" optional="YES" attributeType="String"/>
+        <relationship name="template" maxCount="1" deletionRule="Nullify" destinationEntity="TemplateEntity" inverseName="cvs" inverseEntity="TemplateEntity"/>
+    </entity>
+    <entity name="TemplateEntity" representedClassName=".TemplateEntity" syncable="YES">
+        <attribute name="hasAge" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hasEmail" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hasExperience" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hasName" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hasPersonalProjects" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hasPhone" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hasSkills" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hasStudies" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="cvs" toMany="YES" deletionRule="Cascade" destinationEntity="CVEntity" inverseName="template" inverseEntity="CVEntity"/>
+    </entity>
+    <elements>
+        <element name="CVEntity" positionX="-54" positionY="54" width="128" height="164"/>
+        <element name="TemplateEntity" positionX="-63" positionY="-18" width="128" height="164"/>
+    </elements>
+</model>
