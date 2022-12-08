@@ -17,6 +17,8 @@ class BigCVCreationTableViewCell: UITableViewCell {
     // MARK: - Parameters
     
     static let identifier: String = "BigCVCreationTableViewCell"
+    weak var delegate: CVFieldCompletion?
+    var templateType: TemplateType?
     
     // MARK: - Lifecycle Methods
 
@@ -36,6 +38,17 @@ class BigCVCreationTableViewCell: UITableViewCell {
     func configureWith(_ cv: UserCV, templateType: TemplateType) {
         typeLabel.text = templateType.name
         detailsTextView.text = cv.getValueForType(templateType)
+        self.templateType = templateType
     }
     
+}
+
+extension SmallCVCreationTableViewCell: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        guard let templateType = templateType else {
+            return
+        }
+        
+        delegate?.fieldUpdated(withText: textView.text, for: templateType)
+    }
 }

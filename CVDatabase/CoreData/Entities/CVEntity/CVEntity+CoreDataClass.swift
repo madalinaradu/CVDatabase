@@ -44,12 +44,14 @@ extension CVEntity {
     
     static func fetchAll(for template: Template,
                          context: NSManagedObjectContext) -> [CVEntity] {
-        let templateEntity = template.convertToCoreDataEntity(context: context)
-        guard let cvs = templateEntity.cvs?.allObjects as? [CVEntity] else {
+        let fetchRequest: NSFetchRequest = CVEntity.fetchRequest()
+        do {
+            let fetchResponse = try context.fetch(fetchRequest)
+            return fetchResponse.filter({ $0.template.objectID == template.id })
+        } catch {
+            print("Fetch failed")
             return []
         }
-        
-        return cvs
     }
     
     static func deleteAll(context: NSManagedObjectContext) {

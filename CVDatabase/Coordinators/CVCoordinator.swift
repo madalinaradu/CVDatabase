@@ -38,4 +38,14 @@ class CVCoordinator: Coordinator {
         vc.delegate = cvListViewController
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func openCVEditor(from cvListViewController: CVCreationDelegate, cv: UserCV) {
+        let vc = CVCreationViewController.loadFromNib()
+        let viewModel = CVCreationViewModel(dependencyContainer: dependencyContainer,
+                                            cv: cv)
+        vc.viewModel = viewModel
+        vc.coordinator = self
+        vc.delegate = cvListViewController
+        navigationController.pushViewController(vc, animated: true)
+    }
 }

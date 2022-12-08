@@ -45,6 +45,39 @@ class CVCreationViewController: UIViewController {
             self?.delegate?.cvWasCreated()
             self?.navigationController?.popViewController(animated: true)
         }
+        
+        viewModel?.name.bind { [weak self] name in
+            guard let self = self else { return }
+            self.viewModel?.cv.name = name
+        }
+        viewModel?.phone.bind { [weak self] phone in
+            guard let self = self else { return }
+            self.viewModel?.cv.phone = phone
+        }
+        viewModel?.email.bind { [weak self] email in
+            guard let self = self else { return }
+            self.viewModel?.cv.email = email
+        }
+        viewModel?.age.bind { [weak self] age in
+            guard let self = self else { return }
+            self.viewModel?.cv.age = age
+        }
+        viewModel?.studies.bind { [weak self] studies in
+            guard let self = self else { return }
+            self.viewModel?.cv.studies = studies
+        }
+        viewModel?.experience.bind { [weak self] experience in
+            guard let self = self else { return }
+            self.viewModel?.cv.experience = experience
+        }
+        viewModel?.skills.bind { [weak self] skills in
+            guard let self = self else { return }
+            self.viewModel?.cv.skills = skills
+        }
+        viewModel?.personalProjects.bind { [weak self] personalProjects in
+            guard let self = self else { return }
+            self.viewModel?.cv.personalProjects = personalProjects
+        }
     }
     
     func configureTableView() {
@@ -76,12 +109,14 @@ extension CVCreationViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.configureWith(cv, templateType: templateCompletion.templateType)
+            cell.delegate = self
             return cell
         case .bigTextInput:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BigCVCreationTableViewCell.identifier, for: indexPath) as? BigCVCreationTableViewCell else {
                 return UITableViewCell()
             }
             cell.configureWith(cv, templateType: templateCompletion.templateType)
+            cell.delegate = self
             return cell
         }
     }
@@ -102,6 +137,31 @@ extension CVCreationViewController: UITableViewDelegate {
             return 100
         case .bigTextInput:
             return 300
+        }
+    }
+}
+
+// MARK: - CVFieldCompletion
+
+extension CVCreationViewController: CVFieldCompletion {
+    func fieldUpdated(withText text: String, for templateType: TemplateType) {
+        switch templateType {
+        case .name:
+            viewModel?.name.value = text
+        case .phone:
+            viewModel?.phone.value = text
+        case .email:
+            viewModel?.email.value = text
+        case .age:
+            viewModel?.age.value = Int(text)
+        case .studies:
+            viewModel?.studies.value = text
+        case .experience:
+            viewModel?.experience.value = text
+        case .skills:
+            viewModel?.skills.value = text
+        case .personalProjects:
+            viewModel?.personalProjects.value = text
         }
     }
 }

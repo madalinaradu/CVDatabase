@@ -56,13 +56,14 @@ extension CVListViewModel: CVListViewModelType {
     }
     
     func removeCV(atIndex index: IndexPath) {
-//        let templateWasRemoved = dependencyContainer.templateRepository.removeCV(cvs.value[index.row])
-//        guard templateWasRemoved else {
-//            print("The deletion failed")
-//            return
-//        }
-//        print("The deletion succeeded")
-//        cvs.value.remove(at: index.row)
+        let context = CoreDataContainer.shared.newBackgroundContext()
+        let templateWasRemoved = dependencyContainer.cvRepository.removeCV(cvs.value[index.row], context: context)
+        guard templateWasRemoved else {
+            print("The deletion failed")
+            return
+        }
+        print("The deletion succeeded")
+        cvs.value.remove(at: index.row)
     }
 }
 

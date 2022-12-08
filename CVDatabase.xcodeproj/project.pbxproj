@@ -34,6 +34,7 @@
 		4A7FBC61293A346400FE0751 /* TemplateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC5F293A346400FE0751 /* TemplateTableViewCell.swift */; };
 		4A7FBC62293A346400FE0751 /* TemplateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FBC60293A346400FE0751 /* TemplateTableViewCell.xib */; };
 		4A7FBC64293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FBC63293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift */; };
+		4AD4BA8529410F0F00AE18DB /* CVFieldCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD4BA8429410F0F00AE18DB /* CVFieldCompletion.swift */; };
 		4AD96586293CB64D0062C605 /* CVListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD96584293CB64D0062C605 /* CVListViewController.swift */; };
 		4AD96587293CB64D0062C605 /* CVListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD96585293CB64D0062C605 /* CVListViewController.xib */; };
 		4AD96589293CB6E30062C605 /* CVListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD96588293CB6E30062C605 /* CVListViewModel.swift */; };
@@ -110,6 +111,7 @@
 		4A7FBC5F293A346400FE0751 /* TemplateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTableViewCell.swift; sourceTree = "<group>"; };
 		4A7FBC60293A346400FE0751 /* TemplateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateTableViewCell.xib; sourceTree = "<group>"; };
 		4A7FBC63293A3AB300FE0751 /* NSManagedObjectContext+deleteRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+deleteRecords.swift"; sourceTree = "<group>"; };
+		4AD4BA8429410F0F00AE18DB /* CVFieldCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVFieldCompletion.swift; sourceTree = "<group>"; };
 		4AD96584293CB64D0062C605 /* CVListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVListViewController.swift; sourceTree = "<group>"; };
 		4AD96585293CB64D0062C605 /* CVListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CVListViewController.xib; sourceTree = "<group>"; };
 		4AD96588293CB6E30062C605 /* CVListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVListViewModel.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 			children = (
 				4AEB0ED0293BE9DC005ADCB1 /* TemplateCreationDelegate.swift */,
 				4AD9658A293CB8040062C605 /* CVCreationDelegate.swift */,
+				4AD4BA8429410F0F00AE18DB /* CVFieldCompletion.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				4AD9658B293CB8040062C605 /* CVCreationDelegate.swift in Sources */,
 				4AEB0ED1293BE9DC005ADCB1 /* TemplateCreationDelegate.swift in Sources */,
 				4A7FBC2C293A104C00FE0751 /* CoreDataContainer.swift in Sources */,
+				4AD4BA8529410F0F00AE18DB /* CVFieldCompletion.swift in Sources */,
 				4A7FBBFA293A0DB500FE0751 /* SceneDelegate.swift in Sources */,
 				4AD965AF293D1F520062C605 /* CVTableViewCell.swift in Sources */,
 				4A7FBC4B293A214F00FE0751 /* CVEntity+CoreDataProperties.swift in Sources */,

@@ -17,6 +17,8 @@ class SmallCVCreationTableViewCell: UITableViewCell {
     // MARK: - Parameters
     
     static let identifier: String = "SmallCVCreationTableViewCell"
+    weak var delegate: CVFieldCompletion?
+    var templateType: TemplateType?
     
     // MARK: - Lifecycle Methods
 
@@ -36,6 +38,21 @@ class SmallCVCreationTableViewCell: UITableViewCell {
     func configureWith(_ cv: UserCV, templateType: TemplateType) {
         typeLabel.text = templateType.name
         detailsTextField.text = cv.getValueForType(templateType)
+        detailsTextField.delegate = self
+        self.templateType = templateType
+        
+        if templateType == .phone {
+            detailsTextField.keyboardType = .phonePad
+        }
     }
-    
+}
+
+extension SmallCVCreationTableViewCell: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let templateType = templateType else {
+            return
+        }
+        
+        delegate?.fieldUpdated(withText: textField.text ?? "", for: templateType)
+    }
 }

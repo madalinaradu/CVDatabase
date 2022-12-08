@@ -48,6 +48,7 @@ class CVListViewController: UIViewController {
     
     func configureTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UINib(nibName: CVTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CVTableViewCell.identifier)
     }
     
@@ -85,6 +86,17 @@ extension CVListViewController: UITableViewDataSource {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+    }
+}
+
+// MARK: -
+
+extension CVListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cv = viewModel?.cvs.value[indexPath.row] else {
+            return
+        }
+        coordinator?.openCVEditor(from: self, cv: cv)
     }
 }
 

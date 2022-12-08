@@ -28,8 +28,8 @@ final class CVRepository {
     }
     
     func saveCV(_ cv: UserCV,
-                              context: NSManagedObjectContext,
-                              saveContext: Bool = true) {
+                context: NSManagedObjectContext,
+                saveContext: Bool = true) {
         let _ = cv.convertToCoreDataEntity(context: context)
         guard saveContext else {
             return
