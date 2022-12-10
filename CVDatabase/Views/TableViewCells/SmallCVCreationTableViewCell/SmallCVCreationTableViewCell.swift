@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SmallCVCreationTableViewCell: UITableViewCell {
+class SmallCVCreationTableViewCell: CVCreationTableViewCell {
 
     // MARK: - IBOutlets
     
@@ -17,21 +17,6 @@ class SmallCVCreationTableViewCell: UITableViewCell {
     // MARK: - Parameters
     
     static let identifier: String = "SmallCVCreationTableViewCell"
-    weak var delegate: CVFieldCompletion?
-    var templateType: TemplateType?
-    
-    // MARK: - Lifecycle Methods
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     // MARK: - IBActions
     
@@ -45,10 +30,10 @@ class SmallCVCreationTableViewCell: UITableViewCell {
     
     // MARK: - Instance functions
     
-    func configureWith(_ cv: UserCV, templateType: TemplateType) {
+    override func configureWith(_ cv: UserCV, templateType: TemplateType, delegate: CVFieldCompletion) {
+        super.configureWith(cv, templateType: templateType, delegate: delegate)
         typeLabel.text = templateType.name
         detailsTextField.text = cv.getValueForType(templateType)
-        self.templateType = templateType
         
         if templateType == .phone {
             detailsTextField.keyboardType = .phonePad

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BigCVCreationTableViewCell: UITableViewCell {
+class BigCVCreationTableViewCell: CVCreationTableViewCell {
 
     // MARK: - IBOutlets
     
@@ -17,31 +17,15 @@ class BigCVCreationTableViewCell: UITableViewCell {
     // MARK: - Parameters
     
     static let identifier: String = "BigCVCreationTableViewCell"
-    weak var delegate: CVFieldCompletion?
-    var templateType: TemplateType?
     
-    // MARK: - Lifecycle Methods
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    // MARK: - Instance Methods
     
-    // MARK: - Instance functions
-    
-    func configureWith(_ cv: UserCV, templateType: TemplateType) {
+    override func configureWith(_ cv: UserCV, templateType: TemplateType, delegate: CVFieldCompletion) {
+        super.configureWith(cv, templateType: templateType, delegate: delegate)
         typeLabel.text = templateType.name
         detailsTextView.text = cv.getValueForType(templateType)
         detailsTextView.delegate = self
-        self.templateType = templateType
     }
-    
 }
 
 // MARK: - UITextViewDelegate

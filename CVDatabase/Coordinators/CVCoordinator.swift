@@ -9,11 +9,11 @@ import UIKit
 
 class CVCoordinator: Coordinator {
     var navigationController: UINavigationController
-    var dependencyContainer: ServiceDependencyContainer
+    var dependencyContainer: ServiceDependencyProvider
     let template: Template
 
     init(navigationController: UINavigationController,
-         dependencyContainer: ServiceDependencyContainer,
+         dependencyContainer: ServiceDependencyProvider,
          template: Template) {
         self.navigationController = navigationController
         self.dependencyContainer = dependencyContainer

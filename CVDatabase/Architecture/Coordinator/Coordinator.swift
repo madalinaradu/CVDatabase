@@ -9,6 +9,7 @@ import UIKit
 
 protocol Coordinator {
     var navigationController: UINavigationController { get set }
+    var dependencyContainer: ServiceDependencyProvider { get set }
 
     func start()
 }

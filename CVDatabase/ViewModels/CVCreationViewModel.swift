@@ -7,7 +7,10 @@
 
 import Foundation
 
+typealias Dependencies = CVRepositoryProvider & CVCreationTableViewCellFactoryProvider
+
 protocol CVCreationViewModelType: AnyObject {
+    var dependencyContainer: Dependencies { get }
     var cv: UserCV { get }
     var template: Template { get }
     var cvSavingIsComplete: Observable<Bool> { get }
@@ -28,11 +31,9 @@ protocol CVCreationViewModelType: AnyObject {
 
 class CVCreationViewModel {
 
-    typealias Dependencies = CVRepositoryProvider
-
     // MARK: - Parameters
 
-    private let dependencyContainer: Dependencies
+    let dependencyContainer: Dependencies
 
     var cv: UserCV
     

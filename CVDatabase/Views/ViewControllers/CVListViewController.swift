@@ -89,7 +89,7 @@ extension CVListViewController: UITableViewDataSource {
     }
 }
 
-// MARK: -
+// MARK: - UITableViewDelegate
 
 extension CVListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -10,7 +10,7 @@ import UIKit
 class CVCreationViewController: UIViewController {
     
     // MARK: - IBOutlets
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Parameters
@@ -23,7 +23,7 @@ class CVCreationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureTableView()
         bindViewModel()
     }
@@ -103,22 +103,18 @@ extension CVCreationViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        switch templateCompletion.templateType.fieldType {
-        case .smallTextInput:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SmallCVCreationTableViewCell.identifier, for: indexPath) as? SmallCVCreationTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.configureWith(cv, templateType: templateCompletion.templateType)
-            cell.delegate = self
-            return cell
-        case .bigTextInput:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: BigCVCreationTableViewCell.identifier, for: indexPath) as? BigCVCreationTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.configureWith(cv, templateType: templateCompletion.templateType)
-            cell.delegate = self
-            return cell
+        guard let cell = viewModel?
+            .dependencyContainer
+            .factory
+            .getCellFor(cv,
+                        templateType: templateCompletion.templateType,
+                        delegate: self,
+                        in: tableView,
+                        at: indexPath) else {
+            return UITableViewCell()
         }
+        
+        return cell
     }
 }
 

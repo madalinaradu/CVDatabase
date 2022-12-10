@@ -8,12 +8,14 @@
 import Foundation
 
 protocol ServiceDependencyProvider: TemplateRepositoryProvider,
-                                    CVRepositoryProvider
+                                    CVRepositoryProvider,
+                                    CVCreationTableViewCellFactoryProvider
 { }
 
 final class ServiceDependencyContainer: ServiceDependencyProvider {
     var templateRepository: TemplateRepository = TemplateRepository()
     var cvRepository: CVRepository = CVRepository()
+    var factory: CVTableViewCellFactoryType = CVTableViewCellFactory()
 }
 
 protocol TemplateRepositoryProvider {
@@ -22,4 +24,8 @@ protocol TemplateRepositoryProvider {
 
 protocol CVRepositoryProvider {
     var cvRepository: CVRepository { get }
+}
+
+protocol CVCreationTableViewCellFactoryProvider {
+    var factory: CVTableViewCellFactoryType { get }
 }
