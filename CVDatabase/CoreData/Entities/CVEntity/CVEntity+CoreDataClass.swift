@@ -55,7 +55,7 @@ extension CVEntity {
     }
     
     static func deleteAll(context: NSManagedObjectContext) {
-        context.deleteRecords(for: "CVEntity", context: context)
+        context.deleteRecords(for: "CVEntity")
     }
     
     static func deleteEntityWithId(of id: NSManagedObjectID,

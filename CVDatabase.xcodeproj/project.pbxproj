@@ -180,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				4A788EE82944F65D00414D07 /* CVCreationTableViewCell.swift */,
+				4AD965A2293D14F60062C605 /* SmallCVCreationTableViewCell */,
+				4AD965A3293D15230062C605 /* BigCVCreationTableViewCell */,
 			);
 			path = CVCreationTableViewCell;
 			sourceTree = "<group>";
@@ -377,12 +379,10 @@
 		4A7FBC5D293A30B700FE0751 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				4A788EE72944F64D00414D07 /* CVCreationTableViewCell */,
 				4AEB0EC9293A7B1B005ADCB1 /* TemplateTableViewCell */,
 				4AEB0ECA293A7B28005ADCB1 /* TemplateTypeTableViewCell */,
 				4AD965AC293D1F3E0062C605 /* CVTableViewCell */,
-				4AD965A2293D14F60062C605 /* SmallCVCreationTableViewCell */,
-				4AD965A3293D15230062C605 /* BigCVCreationTableViewCell */,
+				4A788EE72944F64D00414D07 /* CVCreationTableViewCell */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";

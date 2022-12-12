@@ -23,7 +23,7 @@
         <relationship name="cvs" toMany="YES" deletionRule="Cascade" destinationEntity="CVEntity" inverseName="template" inverseEntity="CVEntity"/>
     </entity>
     <elements>
-        <element name="CVEntity" positionX="-54" positionY="54" width="128" height="164"/>
+        <element name="CVEntity" positionX="-54" positionY="54" width="128" height="178"/>
         <element name="TemplateEntity" positionX="-63" positionY="-18" width="128" height="164"/>
     </elements>
 </model>

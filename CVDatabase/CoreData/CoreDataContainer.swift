@@ -9,8 +9,16 @@ import Foundation
 import CoreData
 
 final class CoreDataContainer: NSPersistentContainer {
-
+    
+    // Singleton shared instance
+    
     static let shared = CoreDataContainer(name: "CVDatabase", managedObjectModel: .sharedModel)
+    
+    // Singleton private initialiser
+    
+    private override init(name: String, managedObjectModel model: NSManagedObjectModel) {
+        super.init(name: name, managedObjectModel: model)
+    }
 
     func setup() {
         loadPersistentStores(completionHandler: { (storeDescription, error) in

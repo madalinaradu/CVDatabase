@@ -54,7 +54,7 @@ extension TemplateEntity {
     }
     
     static func deleteAll(context: NSManagedObjectContext) {
-        context.deleteRecords(for: "TemplateEntity", context: context)
+        context.deleteRecords(for: "TemplateEntity")
     }
     
     static func deleteEntityWithId(of id: NSManagedObjectID,

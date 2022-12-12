@@ -47,6 +47,11 @@ class UserCV {
 
 extension UserCV {
     func convertToCoreDataEntity(context: NSManagedObjectContext) -> CVEntity? {
+        guard let templateId = template.id,
+              let templateEntity = TemplateEntity.fetchRecord(withIdOf: templateId, context: context) else {
+            return nil
+        }
+        
         let cvEntity = CVEntity(context: context)
         cvEntity.name = self.name
         cvEntity.phone = self.phone
@@ -58,11 +63,6 @@ extension UserCV {
         cvEntity.experience = self.experience
         cvEntity.skills = self.skills
         cvEntity.personalProjects = self.personalProjects
-        
-        guard let templateId = template.id,
-              let templateEntity = TemplateEntity.fetchRecord(withIdOf: templateId, context: context) else {
-            return nil
-        }
         
         cvEntity.template = templateEntity
         return cvEntity

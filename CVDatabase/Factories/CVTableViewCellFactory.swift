@@ -9,11 +9,19 @@ import Foundation
 import UIKit
 
 protocol CVTableViewCellFactoryType {
-    func getCellFor(_ cv: UserCV, templateType: TemplateType, delegate: CVFieldCompletion, in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
+    func getCellFor(_ cv: UserCV,
+                    templateType: TemplateType,
+                    delegate: CVFieldCompletion,
+                    in tableView: UITableView,
+                    at indexPath: IndexPath) -> UITableViewCell
 }
 
 class CVTableViewCellFactory: CVTableViewCellFactoryType {
-    func getCellFor(_ cv: UserCV, templateType: TemplateType, delegate: CVFieldCompletion, in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+    func getCellFor(_ cv: UserCV,
+                    templateType: TemplateType,
+                    delegate: CVFieldCompletion,
+                    in tableView: UITableView,
+                    at indexPath: IndexPath) -> UITableViewCell {
         switch templateType.fieldType {
         case .smallTextInput:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SmallCVCreationTableViewCell.identifier, for: indexPath) as? SmallCVCreationTableViewCell else {
